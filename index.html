@@ -168,12 +168,12 @@
                         </div>
                     </div>
 
-                    <!-- Clickable Banner Photo that takes user directly to TikTok Live -->
-                    <div onclick="goToTikTokLive()" class="absolute right-3 sm:right-10 bottom-4 top-4 sm:top-6 sm:bottom-6 flex items-center justify-center opacity-40 sm:opacity-100 cursor-pointer group/img" title="Hacé clic para entrar al directo de TikTok del dueño">
+                    <!-- Clickable Banner Photo that takes user directly to TikTok Live (Visible on tablet/desktop, hidden on mobile for clean mobile reading) -->
+                    <div onclick="goToTikTokLive()" class="hidden md:flex absolute right-6 lg:right-10 bottom-6 top-6 items-center justify-center cursor-pointer group/img" title="Hacé clic para entrar al directo de TikTok del dueño">
                         <div class="relative">
                             <div class="absolute -inset-1.5 bg-gradient-to-r from-[#00f2fe] to-[#fe2c55] rounded-3xl blur opacity-70 group-hover/img:opacity-100 group-hover/img:scale-105 transition duration-500"></div>
-                            <div class="relative rounded-2xl overflow-hidden border-2 border-white/30 shadow-2xl max-h-[300px] sm:max-h-[380px] max-w-[280px] sm:max-w-[360px] bg-black">
-                                <img src="src/assets/images/tiktok_promo_banner_1790196804892.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1616469829941-c7200edec809?auto=format&fit=crop&w=600&q=80';" alt="Precios Únicos en TikTok Live del Dueño" class="w-full h-full object-cover group-hover/img:scale-105 transition duration-500">
+                            <div class="relative rounded-2xl overflow-hidden border-2 border-white/30 shadow-2xl max-h-[340px] max-w-[320px] bg-black">
+                                <img src="https://images.unsplash.com/photo-1616469829941-c7200edec809?auto=format&fit=crop&w=600&q=80" alt="Precios Únicos en TikTok Live del Dueño" class="w-full h-full object-cover group-hover/img:scale-105 transition duration-500">
                                 
                                 <!-- Top Live Badge -->
                                 <div class="absolute top-3 left-3 bg-black/85 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white flex items-center gap-1.5 border border-white/20 shadow-lg">
@@ -239,11 +239,12 @@
                         </div>
                     </div>
 
-                    <div class="absolute right-3 sm:right-10 bottom-4 top-4 sm:top-6 sm:bottom-6 flex items-center justify-center opacity-30 sm:opacity-100 pointer-events-none sm:pointer-events-auto">
+                    <!-- Plan Canje Card (Visible on desktop/tablet, hidden on mobile for clean mobile reading) -->
+                    <div class="hidden md:flex absolute right-6 lg:right-10 bottom-6 top-6 items-center justify-center">
                         <div class="relative group/img">
                             <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-3xl blur opacity-50 group-hover/img:opacity-80 transition duration-500"></div>
-                            <div class="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl max-h-[300px] sm:max-h-[380px] max-w-[280px] sm:max-w-[360px] bg-black">
-                                <img src="src/assets/images/trade_in_banner_1790196816190.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80';" alt="Aceptamos Equipos como Parte de Pago" class="w-full h-full object-cover">
+                            <div class="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl max-h-[340px] max-w-[320px] bg-black">
+                                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80" alt="Aceptamos Equipos como Parte de Pago" class="w-full h-full object-cover">
                                 <div class="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-emerald-400 flex items-center gap-1.5 border border-emerald-500/30 shadow-lg">
                                     <i class="fa-solid fa-arrows-rotate"></i>
                                     <span>Plan Canje Oficial</span>
@@ -1516,41 +1517,10 @@
 
             renderComparison();
             applyFiltersAndRender();
-            updateCompareDockUI();
-
-            if (compareList.length === 2) {
-                updateCompareDockUI(true);
-            }
-        }
-
-        function updateCompareDockUI(showAttention = false) {
-            const dock = document.getElementById('floating-compare-dock');
-            const title = document.getElementById('compare-dock-title');
-            const subtitle = document.getElementById('compare-dock-subtitle');
-            if (!dock || !title || !subtitle) return;
-
-            if (compareList.length === 0) {
-                dock.classList.add('translate-y-28', 'opacity-0', 'pointer-events-none');
-                dock.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-            } else if (compareList.length === 1) {
-                const p1 = products.find(p => p.id === compareList[0]);
-                title.innerText = `1/2 para comparar: ${p1 ? p1.name : ''}`;
-                subtitle.innerText = "Hacé clic en otro modelo para comparar lado a lado";
-                dock.classList.remove('translate-y-28', 'opacity-0', 'pointer-events-none');
-                dock.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-            } else {
-                const p1 = products.find(p => p.id === compareModelAId);
-                const p2 = products.find(p => p.id === compareModelBId);
-                title.innerText = `Comparando: ${p1 ? p1.name : 'Modelo 1'} vs ${p2 ? p2.name : 'Modelo 2'}`;
-                subtitle.innerText = "Tabla comparativa de chip, cámara, pantalla y batería lista";
-                dock.classList.remove('translate-y-28', 'opacity-0', 'pointer-events-none');
-                dock.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-            }
         }
 
         function clearCompareSelection() {
             compareList = [];
-            updateCompareDockUI();
             applyFiltersAndRender();
         }
 
@@ -2157,29 +2127,6 @@
             content.classList.add('scale-95');
         }
     </script>
-
-    <!-- Floating Compare Dock (Appears when products are marked for comparison) -->
-    <aside id="floating-compare-dock" aria-label="Bandeja de Comparación" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-gray-950/95 backdrop-blur-xl text-white px-4 sm:px-5 py-3 rounded-2xl shadow-2xl border border-white/20 transition-all duration-300 transform translate-y-28 opacity-0 pointer-events-none flex items-center justify-between gap-3 sm:gap-5 max-w-lg w-[94%] sm:w-auto">
-        <div class="flex items-center gap-2.5 overflow-hidden">
-            <div class="w-8 h-8 rounded-xl bg-blue-600/30 border border-blue-400/40 text-blue-400 flex items-center justify-center shrink-0 text-xs">
-                <i class="fa-solid fa-code-compare"></i>
-            </div>
-            <div class="text-left leading-tight overflow-hidden">
-                <div id="compare-dock-title" class="text-xs font-bold text-white whitespace-nowrap overflow-hidden text-ellipsis">Comparando 2 modelos</div>
-                <div id="compare-dock-subtitle" class="text-[10px] text-gray-400 truncate">Hacé clic para ver la tabla comparativa</div>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-2 shrink-0">
-            <a href="#comparador" onclick="smoothScrollToCompare()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer">
-                <span>Ver Comparativa</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-            </a>
-            <button onclick="clearCompareSelection()" title="Limpiar comparación" class="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white flex items-center justify-center text-xs transition-colors cursor-pointer">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-    </aside>
 
     <!-- Floating WhatsApp Assistance Widget -->
     <aside aria-label="Asistencia WhatsApp" class="fixed bottom-6 right-6 z-40 flex items-center group">
