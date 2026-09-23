@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iStore Pro | Venta de iPhones de Alta Gama</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        apple: {
+                            dark: '#000000',
+                            gray: '#1d1d1f',
+                            lightGray: '#f5f5f7',
+                            accent: '#2997ff',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fbfbfd;
+            color: #1d1d1f;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+</head>
+<body class="bg-[#fbfbfd] text-[#1d1d1f] antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 text-xl font-bold tracking-tight text-gray-900">
+                <i class="fa-brands fa-apple text-2xl"></i>
+                <span>iStore<span class="text-blue-600 font-light">Pro</span></span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                <a href="#catalogo" class="hover:text-blue-600 transition-colors">iPhones</a>
+                <a href="#beneficios" class="hover:text-blue-600 transition-colors">Garantía</a>
+                <a href="#contacto" class="hover:text-blue-600 transition-colors">Contacto</a>
+            </nav>
+
+            <!-- Actions / Cart Button -->
+            <div class="flex items-center gap-4">
+                <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-gray-800 flex items-center justify-center focus:outline-none">
+                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold scale-0 transition-transform duration-200">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Carousel Section -->
+    <section class="pt-24 pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-900 text-white min-h-[420px] sm:min-h-[500px] flex items-center">
+            <!-- Carousel Track -->
+            <div id="carousel-track" class="absolute inset-0 flex transition-transform duration-700 ease-out">
+                <!-- Slide 1 -->
+                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-gray-900 via-gray-800 to-black p-8 sm:p-16">
+                    <div class="max-w-xl z-10">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-widest bg-blue-600/30 text-blue-400 rounded-full border border-blue-500/30">Novedad 2026</span>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">iPhone 17 Pro Max</h1>
+                        <p class="text-gray-300 text-sm sm:text-base mb-6">Titanio aeroespacial. Chip A19 Pro con IA integrada y el sistema de cámaras más avanzado hasta la fecha.</p>
+                        <a href="#catalogo" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-full transition-all shadow-lg shadow-blue-600/30">
+                            Comprar Ahora <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                    <div class="absolute right-4 sm:right-12 bottom-0 top-0 flex items-center opacity-40 sm:opacity-90 pointer-events-none">
+                        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80" alt="iPhone 17 Pro" class="h-4/5 object-contain drop-shadow-2xl">
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-zinc-900 via-neutral-900 to-black p-8 sm:p-16">
+                    <div class="max-w-xl z-10">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-widest bg-purple-600/30 text-purple-400 rounded-full border border-purple-500/30">Garantía Oficial</span>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">100% Originales & Nuevos</h1>
+                        <p class="text-gray-300 text-sm sm:text-base mb-6">Equipos libres de fábrica con 1 año de garantía internacional y soporte técnico especializado.</p>
+                        <a href="#catalogo" class="inline-flex items-center gap-2 bg-white text-gray-900 hover:bg-gray-100 font-medium px-6 py-3 rounded-full transition-all shadow-lg">
+                            Ver Catálogo <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                    <div class="absolute right-4 sm:right-12 bottom-0 top-0 flex items-center opacity-40 sm:opacity-90 pointer-events-none">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" alt="iPhone Display" class="h-4/5 object-contain drop-shadow-2xl">
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-slate-900 via-zinc-900 to-black p-8 sm:p-16">
+                    <div class="max-w-xl z-10">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-widest bg-emerald-600/30 text-emerald-400 rounded-full border border-emerald-500/30">Envío Gratis</span>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">Despachos a Todo el País</h1>
+                        <p class="text-gray-300 text-sm sm:text-base mb-6">Recibí tu nuevo iPhone en la puerta de tu casa de forma rápida, segura y asegurada.</p>
+                        <a href="#catalogo" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-full transition-all shadow-lg shadow-blue-600/30">
+                            Explorar Modelos <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                    <div class="absolute right-4 sm:right-12 bottom-0 top-0 flex items-center opacity-40 sm:opacity-90 pointer-events-none">
+                        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80" alt="iPhone Model" class="h-4/5 object-contain drop-shadow-2xl">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <button onclick="prevSlide()" class="absolute left-4 z-20 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full backdrop-blur-sm transition-all focus:outline-none">
+                <i class="fa-solid fa-chevron-left text-sm"></i>
+            </button>
+            <button onclick="nextSlide()" class="absolute right-4 z-20 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full backdrop-blur-sm transition-all focus:outline-none">
+                <i class="fa-solid fa-chevron-right text-sm"></i>
+            </button>
+
+            <!-- Indicators -->
+            <div class="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
+                <button onclick="currentSlide(0)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all hover:bg-white"></button>
+                <button onclick="currentSlide(1)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all hover:bg-white"></button>
+                <button onclick="currentSlide(2)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all hover:bg-white"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">Catálogo de iPhones</h2>
+                <p class="text-gray-500 text-sm mt-1">Elegí tu modelo preferido y configurá capacidad y color.</p>
+            </div>
+            <!-- Filter Pills -->
+            <div class="flex flex-wrap gap-2" id="filter-container">
+                <button onclick="filterProducts('all')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-900 text-white transition-all shadow-sm">Todos</button>
+                <button onclick="filterProducts('Pro')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-all">Línea Pro</button>
+                <button onclick="filterProducts('Standard')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-all">Línea Standard</button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamically populated by JS -->
+        </div>
+    </main>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="bg-white border-t border-gray-200 py-16 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Garantía Asegurada</h3>
+                    <p class="text-gray-500 text-sm">Equipos 100% originales con garantía oficial por defectos de fábrica.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Envíos Rápidos</h3>
+                    <p class="text-gray-500 text-sm">Despacho inmediato a todo el país con seguimiento en tiempo real.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-credit-card"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Múltiples Pagos</h3>
+                    <p class="text-gray-500 text-sm">Aboná mediante transferencia bancaria, tarjetas de crédito o efectivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 text-white font-bold text-lg">
+                <i class="fa-brands fa-apple text-xl"></i>
+                <span>iStore<span class="text-blue-500 font-light">Pro</span></span>
+            </div>
+            <p class="text-xs text-gray-500 text-center md:text-left">© 2026 iStore Pro. Todos los derechos reservados. Inspirado en diseño minimalista Apple.</p>
+            <div class="flex gap-4 text-lg">
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleCart()"></div>
+
+    <!-- Shopping Cart Side Panel -->
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Cart Header -->
+        <div class="p-6 border-b border-gray-200 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-blue-600 text-xl"></i>
+                <h3 class="font-bold text-lg text-gray-900">Tu Carrito</h3>
+                <span id="cart-count-badge" class="bg-gray-100 text-gray-800 text-xs px-2 py-0.5 rounded-full font-semibold">0 items</span>
+            </div>
+            <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 transition-colors">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 divide-y divide-gray-100">
+            <!-- Empty State -->
+            <div id="cart-empty-state" class="h-full flex flex-col items-center justify-center text-center text-gray-400 py-12">
+                <i class="fa-solid fa-cart-shopping text-4xl mb-3 text-gray-300"></i>
+                <p class="font-medium text-gray-600">Tu carrito está vacío</p>
+                <p class="text-xs text-gray-400 mt-1">Explora nuestro catálogo y añadí tu próximo iPhone.</p>
+            </div>
+        </div>
+
+        <!-- Cart Footer -->
+        <div id="cart-footer" class="p-6 border-t border-gray-200 bg-gray-50 hidden">
+            <div class="space-y-2 mb-4">
+                <div class="flex justify-between text-sm text-gray-500">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">$0</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-500">
+                    <span>Envío</span>
+                    <span class="text-emerald-600 font-medium">Gratis</span>
+                </div>
+                <div class="flex justify-between text-base font-bold text-gray-900 pt-2 border-t border-gray-200">
+                    <span>Total</span>
+                    <span id="cart-total" class="text-blue-600">$0</span>
+                </div>
+            </div>
+            <button onclick="checkout()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2">
+                <span>Finalizar Compra</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom Modal Message Box (No alert() used) -->
+    <div id="custom-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="modal-content" class="bg-white rounded-2xl p-6 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300 text-center">
+            <div id="modal-icon" class="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="modal-title" class="font-bold text-lg text-gray-900 mb-2">¡Operación Exitosa!</h3>
+            <p id="modal-message" class="text-sm text-gray-500 mb-6">El producto se agregó correctamente al carrito.</p>
+            <button onclick="closeModal()" class="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium py-2.5 rounded-xl transition-all">
+                Aceptar
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Products Database
+        const products = [
+            {
+                id: 1,
+                name: "iPhone 17 Pro Max",
+                category: "Pro",
+                tag: "Más Vendido",
+                basePrice: 1399,
+                image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80",
+                storageOptions: [
+                    { size: "256GB", priceAdd: 0 },
+                    { size: "512GB", priceAdd: 200 },
+                    { size: "1TB", priceAdd: 400 }
+                ],
+                colors: [
+                    { name: "Titanio Natural", hex: "#b8b2a7" },
+                    { name: "Titanio Negro", hex: "#3b3a39" },
+                    { name: "Titanio Blanco", hex: "#e3e4e5" }
+                ]
+            },
+            {
+                id: 2,
+                name: "iPhone 17 Pro",
+                category: "Pro",
+                tag: "Nuevo",
+                basePrice: 1199,
+                image: "https://images.unsplash.com/photo-1695048065099-3543d8a71c87?auto=format&fit=crop&w=600&q=80",
+                storageOptions: [
+                    { size: "128GB", priceAdd: 0 },
+                    { size: "256GB", priceAdd: 150 },
+                    { size: "512GB", priceAdd: 350 }
+                ],
+                colors: [
+                    { name: "Titanio Desierto", hex: "#c5b49f" },
+                    { name: "Titanio Negro", hex: "#3b3a39" },
+                    { name: "Titanio Blanco", hex: "#e3e4e5" }
+                ]
+            },
+            {
+                id: 3,
+                name: "iPhone 16",
+                category: "Standard",
+                tag: "Popular",
+                basePrice: 899,
+                image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80",
+                storageOptions: [
+                    { size: "128GB", priceAdd: 0 },
+                    { size: "256GB", priceAdd: 130 },
+                    { size: "512GB", priceAdd: 300 }
+                ],
+                colors: [
+                    { name: "Ultramar", hex: "#3b5998" },
+                    { name: "Verde Agua", hex: "#a2d9ce" },
+                    { name: "Rosa", hex: "#f8b195" },
+                    { name: "Negro", hex: "#111111" }
+                ]
+            },
+            {
+                id: 4,
+                name: "iPhone 16 Plus",
+                category: "Standard",
+                tag: "Pantalla Grande",
+                basePrice: 999,
+                image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80",
+                storageOptions: [
+                    { size: "128GB", priceAdd: 0 },
+                    { size: "256GB", priceAdd: 130 },
+                    { size: "512GB", priceAdd: 300 }
+                ],
+                colors: [
+                    { name: "Blanco", hex: "#f0f0f0" },
+                    { name: "Negro", hex: "#111111" },
+                    { name: "Rosa", hex: "#f8b195" }
+                ]
+            },
+            {
+                id: 5,
+                name: "iPhone 15",
+                category: "Standard",
+                tag: "Oferta",
+                basePrice: 749,
+                image: "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=600&q=80",
+                storageOptions: [
+                    { size: "128GB", priceAdd: 0 },
+                    { size: "256GB", priceAdd: 120 }
+                ],
+                colors: [
+                    { name: "Azul", hex: "#85c1e9" },
+                    { name: "Amarillo", hex: "#f9e79f" },
+                    { name: "Negro", hex: "#111111" }
+                ]
+            },
+            {
+                id: 6,
+                name: "iPhone 14",
+                category: "Standard",
+                tag: "Económico",
+                basePrice: 629,
+                image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=600&q=80",
+                storageOptions: [
+                    { size: "128GB", priceAdd: 0 },
+                    { size: "256GB", priceAdd: 100 }
+                ],
+                colors: [
+                    { name: "Medianoche", hex: "#2c3e50" },
+                    { name: "Blanco Estrella", hex: "#fdfefe" },
+                    { name: "Rojo (PRODUCT)RED", hex: "#cb4335" }
+                ]
+            }
+        ];
+
+        // State variables
+        let cart = [];
+        let currentSlideIndex = 0;
+        let slideInterval;
+        const selectedConfigs = {}; // productId -> { storageIndex, colorIndex }
+
+        // Initialize App on Load
+        window.onload = function() {
+            renderProducts(products);
+            initCarousel();
+            updateCartUI();
+        };
+
+        // --- CAROUSEL LOGIC ---
+        function initCarousel() {
+            const track = document.getElementById('carousel-track');
+            const totalSlides = track.children.length;
+
+            // Auto slide every 5 seconds
+            slideInterval = setInterval(() => {
+                currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+                updateCarouselPosition();
+            }, 5000);
+        }
+
+        function updateCarouselPosition() {
+            const track = document.getElementById('carousel-track');
+            const totalSlides = track.children.length;
+            if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
+            if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
+
+            track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            
+            // Update dots
+            const dots = document.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlideIndex) {
+                    dot.classList.add('bg-white', 'w-6');
+                    dot.classList.remove('bg-white/50', 'w-2.5');
+                } else {
+                    dot.classList.remove('bg-white', 'w-6');
+                    dot.classList.add('bg-white/50', 'w-2.5');
+                }
+            });
+        }
+
+        function nextSlide() {
+            clearInterval(slideInterval);
+            currentSlideIndex++;
+            updateCarouselPosition();
+            initCarousel();
+        }
+
+        function prevSlide() {
+            clearInterval(slideInterval);
+            currentSlideIndex--;
+            updateCarouselPosition();
+            initCarousel();
+        }
+
+        function currentSlide(index) {
+            clearInterval(slideInterval);
+            currentSlideIndex = index;
+            updateCarouselPosition();
+            initCarousel();
+        }
+
+        // --- PRODUCTS & CONFIGURATION LOGIC ---
+        function renderProducts(itemsToRender) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            if (itemsToRender.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400">No se encontraron productos.</div>`;
+                return;
+            }
+
+            itemsToRender.forEach(product => {
+                // Initialize default config if not present
+                if (!selectedConfigs[product.id]) {
+                    selectedConfigs[product.id] = { storageIdx: 0, colorIdx: 0 };
+                }
+
+                const config = selectedConfigs[product.id];
+                const currentStorage = product.storageOptions[config.storageIdx];
+                const currentColor = product.colors[config.colorIdx];
+                const calculatedPrice = product.basePrice + currentStorage.priceAdd;
+
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group";
+                
+                card.innerHTML = `
+                    <div>
+                        <!-- Top Tag -->
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-700 rounded-full">${product.tag}</span>
+                            <span class="text-xs text-gray-400 font-medium">${product.category}</span>
+                        </div>
+                        
+                        <!-- Product Image -->
+                        <div class="h-64 flex items-center justify-center mb-6 overflow-hidden relative">
+                            <img src="${product.image}" alt="${product.name}" class="h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                        </div>
+
+                        <!-- Product Name -->
+                        <h3 class="font-bold text-xl text-gray-900 mb-2">${product.name}</h3>
+                        
+                        <!-- Color Selector -->
+                        <div class="mb-4">
+                            <div class="text-xs text-gray-500 mb-1.5 flex justify-between">
+                                <span>Color: <strong class="text-gray-800">${currentColor.name}</strong></span>
+                            </div>
+                            <div class="flex gap-2">
+                                ${product.colors.map((color, idx) => `
+                                    <button onclick="selectColor(${product.id}, ${idx})" 
+                                        class="w-6 h-6 rounded-full border-2 transition-all ${config.colorIdx === idx ? 'border-blue-600 scale-110 shadow-sm' : 'border-gray-300 hover:scale-105'}"
+                                        style="background-color: ${color.hex};"
+                                        title="${color.name}">
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Storage Selector -->
+                        <div class="mb-6">
+                            <div class="text-xs text-gray-500 mb-1.5">Almacenamiento:</div>
+                            <div class="grid grid-cols-3 gap-2">
+                                ${product.storageOptions.map((storeOpt, idx) => `
+                                    <button onclick="selectStorage(${product.id}, ${idx})" 
+                                        class="py-2 text-xs font-medium rounded-xl border transition-all ${config.storageIdx === idx ? 'border-blue-600 bg-blue-50/50 text-blue-600 font-bold' : 'border-gray-200 text-gray-600 hover:border-gray-300'}">
+                                        ${storeOpt.size}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price & Add to Cart -->
+                    <div class="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Precio final</span>
+                            <span class="text-2xl font-black text-gray-900">$${calculatedPrice}</span>
+                        </div>
+                        <button onclick="addToCart(${product.id})" class="bg-gray-900 hover:bg-blue-600 text-white px-5 py-3 rounded-xl font-medium text-sm transition-all shadow-md flex items-center gap-2">
+                            <i class="fa-solid fa-cart-plus text-xs"></i>
+                            <span>Agregar</span>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function selectColor(productId, colorIdx) {
+            selectedConfigs[productId].colorIdx = colorIdx;
+            renderProducts(getCurrentFilteredProducts());
+        }
+
+        function selectStorage(productId, storageIdx) {
+            selectedConfigs[productId].storageIdx = storageIdx;
+            renderProducts(getCurrentFilteredProducts());
+        }
+
+        let currentFilter = 'all';
+        function filterProducts(category) {
+            currentFilter = category;
+            
+            // Update filter buttons UI
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes(category === 'all' ? 'Todos' : category)) {
+                    btn.className = "filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-900 text-white transition-all shadow-sm";
+                } else {
+                    btn.className = "filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-all";
+                }
+            });
+
+            renderProducts(getCurrentFilteredProducts());
+        }
+
+        function getCurrentFilteredProducts() {
+            if (currentFilter === 'all') return products;
+            return products.filter(p => p.category === currentFilter);
+        }
+
+        // --- CART MANAGEMENT ---
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            
+            const isOpen = drawer.classList.contains('translate-x-full');
+            if (isOpen) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const config = selectedConfigs[productId];
+            const storage = product.storageOptions[config.storageIdx];
+            const color = product.colors[config.colorIdx];
+            const price = product.basePrice + storage.priceAdd;
+
+            const cartItemId = `${productId}-${storage.size}-${color.name}`;
+            const existingItem = cart.find(item => item.cartItemId === cartItemId);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    cartItemId,
+                    id: product.id,
+                    name: product.name,
+                    image: product.image,
+                    storage: storage.size,
+                    color: color.name,
+                    price,
+                    quantity: 1
+                });
+            }
+
+            updateCartUI();
+            showModal("¡Producto Añadido!", `${product.name} (${storage.size}, ${color.name}) se agregó al carrito correctamente.`, "success");
+        }
+
+        function updateCartQuantity(cartItemId, delta) {
+            const item = cart.find(i => i.cartItemId === cartItemId);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.cartItemId !== cartItemId);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const emptyState = document.getElementById('cart-empty-state');
+            const cartFooter = document.getElementById('cart-footer');
+            const badge = document.getElementById('cart-badge');
+            const countBadge = document.getElementById('cart-count-badge');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            // Badge update
+            if (totalCount > 0) {
+                badge.innerText = totalCount;
+                badge.classList.remove('scale-0');
+                countBadge.innerText = `${totalCount} items`;
+            } else {
+                badge.classList.add('scale-0');
+                countBadge.innerText = `0 items`;
+            }
+
+            if (cart.length === 0) {
+                emptyState.style.display = 'flex';
+                cartFooter.classList.add('hidden');
+                container.innerHTML = '';
+                container.appendChild(emptyState);
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            cartFooter.classList.remove('hidden');
+
+            let html = '';
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                html += `
+                    <div class="py-4 flex items-center gap-4">
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain bg-gray-50 rounded-xl p-1">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-gray-900">${item.name}</h4>
+                            <p class="text-xs text-gray-500">${item.storage} • ${item.color}</p>
+                            <div class="flex items-center justify-between mt-2">
+                                <span class="font-bold text-sm text-blue-600">$${item.price}</span>
+                                <div class="flex items-center gap-2 bg-gray-100 rounded-lg px-2 py-1">
+                                    <button onclick="updateCartQuantity('${item.cartItemId}', -1)" class="text-gray-500 hover:text-black px-1 font-bold">-</button>
+                                    <span class="text-xs font-semibold">${item.quantity}</span>
+                                    <button onclick="updateCartQuantity('${item.cartItemId}', 1)" class="text-gray-500 hover:text-black px-1 font-bold">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            subtotalEl.innerText = `$${subtotal}`;
+            totalEl.innerText = `$${subtotal}`;
+        }
+
+        // --- CHECKOUT & MODAL ---
+        function checkout() {
+            toggleCart();
+            cart = [];
+            updateCartUI();
+            showModal("¡Compra Realizada con Éxito!", "Gracias por tu pedido en iStore Pro. Te enviaremos el comprobante y seguimiento a tu correo electrónico.", "success");
+        }
+
+        function showModal(title, message, type = "success") {
+            const modal = document.getElementById('custom-modal');
+            const content = document.getElementById('modal-content');
+            const titleEl = document.getElementById('modal-title');
+            const msgEl = document.getElementById('modal-message');
+            const iconEl = document.getElementById('modal-icon');
+
+            titleEl.innerText = title;
+            msgEl.innerText = message;
+
+            if (type === "success") {
+                iconEl.className = "w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl";
+                iconEl.innerHTML = '<i class="fa-solid fa-check"></i>';
+            }
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('custom-modal');
+            const content = document.getElementById('modal-content');
+
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.add('scale-95');
+        }
+    </script>
+</body>
+</html>
