@@ -1,0 +1,8 @@
+{
+  "name": "iStore Pro",
+  "description": "Tienda online de venta de iPhones de alta gama con catálogo interactivo, configuración personalizada y carrito de compras.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

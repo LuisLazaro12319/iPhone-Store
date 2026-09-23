@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iStore Pro | Venta de iPhones de Alta Gama</title>
+    <meta name="description" content="Tienda online de venta de iPhones de alta gama con catálogo interactivo, configuración personalizada y carrito de compras.">
+    <meta property="og:title" content="iStore Pro | Venta de iPhones de Alta Gama">
+    <meta property="og:description" content="Tienda online de venta de iPhones de alta gama con catálogo interactivo, configuración personalizada y carrito de compras.">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
@@ -53,43 +56,214 @@
 </head>
 <body class="bg-[#fbfbfd] text-[#1d1d1f] antialiased selection:bg-blue-500 selection:text-white">
 
+    <!-- Top Announcement Bar -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-zinc-950 via-gray-900 to-zinc-950 text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-6 border-b border-white/10 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto w-full flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap text-ellipsis">
+                <button onclick="goToTikTokLive()" class="inline-flex items-center gap-1.5 bg-[#fe2c55]/25 hover:bg-[#fe2c55]/35 text-[#fe2c55] border border-[#fe2c55]/40 px-2.5 py-0.5 rounded-full font-bold text-[10px] transition-all cursor-pointer shadow-2xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
+                    <i class="fa-brands fa-tiktok text-[11px]"></i> TIKTOK LIVE
+                </button>
+                <span class="text-gray-300 font-medium">🔴 Precios únicos y ofertas especiales en vivo dados por el dueño durante los directos</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-4 text-gray-400">
+                <button onclick="goToTikTokLive()" class="text-pink-400 hover:text-pink-300 font-semibold transition-colors flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Ver Directo del Dueño
+                </button>
+                <span class="text-gray-600">|</span>
+                <button onclick="openTradeInModal()" class="text-emerald-400 hover:text-emerald-300 font-medium transition-colors flex items-center gap-1 cursor-pointer">
+                    <i class="fa-solid fa-arrows-rotate text-[10px]"></i> Cotizá tu iPhone usado
+                </button>
+                <span class="text-gray-600">|</span>
+                <span class="flex items-center gap-1 text-gray-300"><i class="fa-solid fa-truck-fast text-blue-400 text-[10px]"></i> Envío Gratis a todo el país</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/60 transition-all duration-300">
+    <header class="fixed top-7 sm:top-8 left-0 right-0 z-40 bg-white/85 backdrop-blur-xl border-b border-gray-200/70 shadow-xs transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-2 text-xl font-bold tracking-tight text-gray-900">
-                <i class="fa-brands fa-apple text-2xl"></i>
-                <span>iStore<span class="text-blue-600 font-light">Pro</span></span>
+            <a href="#" class="flex items-center gap-2 text-xl font-bold tracking-tight text-gray-900 group">
+                <div class="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                    <i class="fa-brands fa-apple text-xl"></i>
+                </div>
+                <span class="text-lg font-black tracking-tight">iStore<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-bold">Pro</span></span>
             </a>
 
             <!-- Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-                <a href="#catalogo" class="hover:text-blue-600 transition-colors">iPhones</a>
-                <a href="#beneficios" class="hover:text-blue-600 transition-colors">Garantía</a>
+            <nav class="hidden md:flex items-center gap-5 text-sm font-medium text-gray-600">
+                <a href="#catalogo" class="hover:text-blue-600 transition-colors font-semibold">iPhones</a>
+                <a href="#comparador" class="hover:text-blue-600 transition-colors font-semibold flex items-center gap-1.5 text-blue-600 bg-blue-50/90 px-3 py-1 rounded-full border border-blue-200/70 shadow-2xs">
+                    <i class="fa-solid fa-code-compare text-xs text-blue-500"></i> Comparar
+                </a>
+                <button onclick="openTradeInModal()" class="text-emerald-600 hover:text-emerald-700 font-semibold flex items-center gap-1.5 transition-colors cursor-pointer bg-emerald-50/70 px-3 py-1 rounded-full border border-emerald-200/60">
+                    <i class="fa-solid fa-arrows-rotate text-xs"></i> Plan Canje
+                </button>
+                <button onclick="goToTikTokLive()" class="text-gray-900 hover:text-[#fe2c55] font-bold flex items-center gap-1.5 transition-colors cursor-pointer bg-pink-50/90 hover:bg-pink-100/90 px-3 py-1 rounded-full border border-pink-200 shadow-2xs">
+                    <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                    <i class="fa-brands fa-tiktok text-xs text-[#fe2c55]"></i> TikTok Live
+                </button>
+                <a href="#beneficios" class="hover:text-blue-600 transition-colors">Garantía & Envíos</a>
                 <a href="#contacto" class="hover:text-blue-600 transition-colors">Contacto</a>
             </nav>
 
             <!-- Actions / Cart Button -->
-            <div class="flex items-center gap-4">
-                <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-gray-800 flex items-center justify-center focus:outline-none">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-gray-800 flex items-center justify-center focus:outline-none cursor-pointer border border-gray-200/50">
                     <i class="fa-solid fa-bag-shopping text-lg"></i>
-                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold scale-0 transition-transform duration-200">0</span>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold scale-0 transition-transform duration-200 shadow-sm">0</span>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Hero Carousel Section -->
-    <section class="pt-24 pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-900 text-white min-h-[420px] sm:min-h-[500px] flex items-center">
+    <section class="pt-28 sm:pt-32 pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-900 text-white min-h-[460px] sm:min-h-[520px] flex items-center group">
             <!-- Carousel Track -->
             <div id="carousel-track" class="absolute inset-0 flex transition-transform duration-700 ease-out">
-                <!-- Slide 1 -->
-                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-gray-900 via-gray-800 to-black p-8 sm:p-16">
+                <!-- Slide 1: Precios Únicos en TikTok Live -->
+                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-black via-zinc-900 to-black p-6 sm:p-14 overflow-hidden">
+                    <!-- Ambient Glow (TikTok Cyan & Magenta) -->
+                    <div class="absolute -top-24 -left-20 w-80 h-80 bg-[#00f2fe]/20 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-24 right-1/3 w-80 h-80 bg-[#fe2c55]/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="max-w-xl z-10">
+                        <div class="flex flex-wrap items-center gap-2 mb-3 sm:mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#00f2fe]/20 to-[#fe2c55]/20 text-white rounded-full border border-white/20 backdrop-blur-md">
+                                <i class="fa-brands fa-tiktok text-[#00f2fe]"></i>
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2fe] via-white to-[#fe2c55]">Directos de TikTok</span>
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold bg-red-500/20 text-red-400 rounded-full border border-red-500/30">
+                                <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> En Vivo con el Dueño
+                            </span>
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl font-black tracking-tight mb-3 text-white leading-tight">
+                            Precios Únicos en <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2fe] via-white to-[#fe2c55]">TikTok Live</span>
+                        </h1>
+                        <p class="text-gray-300 text-sm sm:text-base mb-5 leading-relaxed">
+                            Durante los directos el dueño tira rebajas instantáneas y ofertas especiales en el acto. ¡Tocá para entrar a la transmisión en vivo o revisá todo el catálogo acá!
+                        </p>
+                        <div class="flex flex-wrap items-center gap-2.5 mb-6 text-xs text-gray-200">
+                            <span class="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-sm border border-white/10">
+                                <i class="fa-solid fa-bolt text-yellow-400"></i> Rebajas en el Acto
+                            </span>
+                            <span class="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-sm border border-white/10">
+                                <i class="fa-solid fa-gift text-[#fe2c55]"></i> Ofertas Flash del Dueño
+                            </span>
+                            <span class="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-sm border border-white/10">
+                                <i class="fa-solid fa-box-open text-blue-400"></i> Stock en Vivo
+                            </span>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="goToTikTokLive()" class="inline-flex items-center gap-2 bg-gradient-to-r from-[#fe2c55] via-pink-500 to-[#00f2fe] hover:opacity-95 text-white font-bold px-6 py-3 rounded-full transition-all shadow-lg shadow-pink-500/25 cursor-pointer">
+                                <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+                                <span>Entrar al TikTok Live</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i>
+                            </button>
+                            <a href="#catalogo" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-5 py-3 rounded-full border border-white/20 transition-all backdrop-blur-sm">
+                                <i class="fa-solid fa-mobile-screen text-xs"></i> Ver Catálogo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Clickable Banner Photo that takes user directly to TikTok Live -->
+                    <div onclick="goToTikTokLive()" class="absolute right-3 sm:right-10 bottom-4 top-4 sm:top-6 sm:bottom-6 flex items-center justify-center opacity-40 sm:opacity-100 cursor-pointer group/img" title="Hacé clic para entrar al directo de TikTok del dueño">
+                        <div class="relative">
+                            <div class="absolute -inset-1.5 bg-gradient-to-r from-[#00f2fe] to-[#fe2c55] rounded-3xl blur opacity-70 group-hover/img:opacity-100 group-hover/img:scale-105 transition duration-500"></div>
+                            <div class="relative rounded-2xl overflow-hidden border-2 border-white/30 shadow-2xl max-h-[300px] sm:max-h-[380px] max-w-[280px] sm:max-w-[360px] bg-black">
+                                <img src="/src/assets/images/tiktok_promo_banner_1790196804892.jpg" alt="Precios Únicos en TikTok Live del Dueño" class="w-full h-full object-cover group-hover/img:scale-105 transition duration-500">
+                                
+                                <!-- Top Live Badge -->
+                                <div class="absolute top-3 left-3 bg-black/85 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white flex items-center gap-1.5 border border-white/20 shadow-lg">
+                                    <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                                    <i class="fa-brands fa-tiktok text-[#00f2fe]"></i>
+                                    <span>EN VIVO</span>
+                                </div>
+
+                                <!-- Bottom Click to Join Badge -->
+                                <div class="absolute bottom-3 left-3 right-3 bg-black/90 group-hover/img:bg-red-600/95 backdrop-blur-md p-2.5 rounded-xl border border-white/20 text-center shadow-lg transition-colors">
+                                    <p class="text-xs text-white font-black flex items-center justify-center gap-1.5">
+                                        <i class="fa-solid fa-play text-[10px] text-[#00f2fe]"></i>
+                                        <span>Tocá para entrar al Live 🔴</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Aceptamos Equipos como Parte de Pago -->
+                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-zinc-950 via-slate-900 to-black p-6 sm:p-14 overflow-hidden">
+                    <!-- Ambient Glow (Emerald / Cyan) -->
+                    <div class="absolute -top-20 -right-20 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-24 -left-20 w-80 h-80 bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="max-w-xl z-10">
+                        <div class="flex flex-wrap items-center gap-2 mb-3 sm:mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 rounded-full border border-emerald-500/30">
+                                <i class="fa-solid fa-arrows-rotate text-xs"></i> Plan Canje Oficial
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
+                                <i class="fa-solid fa-bolt text-xs"></i> Cotización en el acto
+                            </span>
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl font-black tracking-tight mb-3 text-white leading-tight">
+                            Aceptamos Equipos como <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300">Parte de Pago</span>
+                        </h1>
+                        <p class="text-gray-300 text-sm sm:text-base mb-5 leading-relaxed">
+                            Entregá tu iPhone anterior y estrená el último modelo pagando solo la diferencia. Tomamos desde iPhone 11 en adelante al mejor valor de mercado con traspaso seguro de fotos y WhatsApp sin cargo.
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mb-6 text-xs text-gray-200">
+                            <div class="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-2 rounded-xl backdrop-blur-sm">
+                                <i class="fa-solid fa-dollar-sign text-emerald-400 text-sm"></i>
+                                <span>Mejor cotización</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-2 rounded-xl backdrop-blur-sm">
+                                <i class="fa-solid fa-shield-halved text-blue-400 text-sm"></i>
+                                <span>1 año de garantía</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-2 rounded-xl backdrop-blur-sm col-span-2 sm:col-span-1">
+                                <i class="fa-solid fa-arrow-right-arrow-left text-teal-400 text-sm"></i>
+                                <span>Traspaso en el acto</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="openTradeInModal()" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold px-6 py-3 rounded-full transition-all shadow-lg shadow-emerald-500/30 cursor-pointer">
+                                <i class="fa-solid fa-calculator text-xs"></i> Cotizar Mi Equipo Ahora
+                            </button>
+                            <a href="#catalogo" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium px-5 py-3 rounded-full border border-white/20 transition-all backdrop-blur-sm">
+                                Ver Modelos Nuevos
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="absolute right-3 sm:right-10 bottom-4 top-4 sm:top-6 sm:bottom-6 flex items-center justify-center opacity-30 sm:opacity-100 pointer-events-none sm:pointer-events-auto">
+                        <div class="relative group/img">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-3xl blur opacity-50 group-hover/img:opacity-80 transition duration-500"></div>
+                            <div class="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl max-h-[300px] sm:max-h-[380px] max-w-[280px] sm:max-w-[360px] bg-black">
+                                <img src="/src/assets/images/trade_in_banner_1790196816190.jpg" alt="Aceptamos Equipos como Parte de Pago" class="w-full h-full object-cover">
+                                <div class="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-emerald-400 flex items-center gap-1.5 border border-emerald-500/30 shadow-lg">
+                                    <i class="fa-solid fa-arrows-rotate"></i>
+                                    <span>Plan Canje Oficial</span>
+                                </div>
+                                <div class="absolute bottom-3 left-3 right-3 bg-black/85 backdrop-blur-md p-2.5 rounded-xl border border-white/15 flex items-center justify-between text-xs text-white shadow-lg">
+                                    <span class="font-medium text-gray-300">Tu iPhone usado</span>
+                                    <i class="fa-solid fa-arrow-right text-emerald-400 text-sm"></i>
+                                    <span class="font-bold text-emerald-400">Nuevo iPhone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: iPhone 17 Pro Max -->
+                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-gray-900 via-gray-800 to-black p-6 sm:p-14">
                     <div class="max-w-xl z-10">
                         <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-widest bg-blue-600/30 text-blue-400 rounded-full border border-blue-500/30">Novedad 2026</span>
-                        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">iPhone 17 Pro Max</h1>
-                        <p class="text-gray-300 text-sm sm:text-base mb-6">Titanio aeroespacial. Chip A19 Pro con IA integrada y el sistema de cámaras más avanzado hasta la fecha.</p>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white">iPhone 17 Pro Max</h2>
+                        <p class="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">Titanio aeroespacial. Chip A19 Pro con IA integrada y el sistema de cámaras más avanzado hasta la fecha.</p>
                         <a href="#catalogo" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-full transition-all shadow-lg shadow-blue-600/30">
                             Comprar Ahora <i class="fa-solid fa-arrow-right text-xs"></i>
                         </a>
@@ -98,12 +272,13 @@
                         <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80" alt="iPhone 17 Pro" class="h-4/5 object-contain drop-shadow-2xl">
                     </div>
                 </div>
-                <!-- Slide 2 -->
-                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-zinc-900 via-neutral-900 to-black p-8 sm:p-16">
+
+                <!-- Slide 4: 100% Originales & Nuevos -->
+                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-zinc-900 via-neutral-900 to-black p-6 sm:p-14">
                     <div class="max-w-xl z-10">
                         <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-widest bg-purple-600/30 text-purple-400 rounded-full border border-purple-500/30">Garantía Oficial</span>
-                        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">100% Originales & Nuevos</h1>
-                        <p class="text-gray-300 text-sm sm:text-base mb-6">Equipos libres de fábrica con 1 año de garantía internacional y soporte técnico especializado.</p>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white">100% Originales & Nuevos</h2>
+                        <p class="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">Equipos libres de fábrica con 1 año de garantía internacional y soporte técnico especializado.</p>
                         <a href="#catalogo" class="inline-flex items-center gap-2 bg-white text-gray-900 hover:bg-gray-100 font-medium px-6 py-3 rounded-full transition-all shadow-lg">
                             Ver Catálogo <i class="fa-solid fa-arrow-right text-xs"></i>
                         </a>
@@ -112,12 +287,13 @@
                         <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" alt="iPhone Display" class="h-4/5 object-contain drop-shadow-2xl">
                     </div>
                 </div>
-                <!-- Slide 3 -->
-                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-slate-900 via-zinc-900 to-black p-8 sm:p-16">
+
+                <!-- Slide 5: Despachos a Todo el País -->
+                <div class="min-w-full h-full relative flex items-center bg-gradient-to-r from-slate-900 via-zinc-900 to-black p-6 sm:p-14">
                     <div class="max-w-xl z-10">
                         <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-widest bg-emerald-600/30 text-emerald-400 rounded-full border border-emerald-500/30">Envío Gratis</span>
-                        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">Despachos a Todo el País</h1>
-                        <p class="text-gray-300 text-sm sm:text-base mb-6">Recibí tu nuevo iPhone en la puerta de tu casa de forma rápida, segura y asegurada.</p>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white">Despachos a Todo el País</h2>
+                        <p class="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">Recibí tu nuevo iPhone en la puerta de tu casa de forma rápida, segura y asegurada.</p>
                         <a href="#catalogo" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-full transition-all shadow-lg shadow-blue-600/30">
                             Explorar Modelos <i class="fa-solid fa-arrow-right text-xs"></i>
                         </a>
@@ -129,34 +305,139 @@
             </div>
 
             <!-- Carousel Controls -->
-            <button onclick="prevSlide()" class="absolute left-4 z-20 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full backdrop-blur-sm transition-all focus:outline-none">
+            <button onclick="prevSlide()" class="absolute left-4 z-20 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all focus:outline-none cursor-pointer">
                 <i class="fa-solid fa-chevron-left text-sm"></i>
             </button>
-            <button onclick="nextSlide()" class="absolute right-4 z-20 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full backdrop-blur-sm transition-all focus:outline-none">
+            <button onclick="nextSlide()" class="absolute right-4 z-20 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all focus:outline-none cursor-pointer">
                 <i class="fa-solid fa-chevron-right text-sm"></i>
             </button>
 
-            <!-- Indicators -->
+            <!-- Indicators (5 slides) -->
             <div class="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
-                <button onclick="currentSlide(0)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all hover:bg-white"></button>
-                <button onclick="currentSlide(1)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all hover:bg-white"></button>
-                <button onclick="currentSlide(2)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all hover:bg-white"></button>
+                <button onclick="currentSlide(0)" class="carousel-dot w-6 h-2.5 rounded-full bg-white transition-all hover:bg-white cursor-pointer" title="Precios TikTok"></button>
+                <button onclick="currentSlide(1)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all hover:bg-white cursor-pointer" title="Plan Canje"></button>
+                <button onclick="currentSlide(2)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all hover:bg-white cursor-pointer" title="iPhone 17 Pro Max"></button>
+                <button onclick="currentSlide(3)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all hover:bg-white cursor-pointer" title="100% Originales"></button>
+                <button onclick="currentSlide(4)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all hover:bg-white cursor-pointer" title="Envíos"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Quality Strip -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="bg-gradient-to-r from-gray-900 via-zinc-900 to-black rounded-2xl p-4 sm:p-5 text-white shadow-xl border border-white/10 grid grid-cols-2 lg:grid-cols-5 gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/30">
+                    <i class="fa-solid fa-shield-halved text-base"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-white">Garantía Oficial</h4>
+                    <p class="text-[11px] text-gray-400">1 año escrita y soporte oficial</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 cursor-pointer" onclick="openTradeInModal()">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
+                    <i class="fa-solid fa-arrows-rotate text-base"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-emerald-400 flex items-center gap-1">Plan Canje <i class="fa-solid fa-chevron-right text-[8px]"></i></h4>
+                    <p class="text-[11px] text-gray-400">Tomamos tu iPhone usado</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 border border-purple-500/30">
+                    <i class="fa-solid fa-truck-fast text-base"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-white">Envío Asegurado</h4>
+                    <p class="text-[11px] text-gray-400">Gratis a todo el país</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 cursor-pointer group" onclick="goToTikTokLive()">
+                <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-[#fe2c55] flex items-center justify-center shrink-0 border border-pink-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-brands fa-tiktok text-base"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-[#fe2c55] flex items-center gap-1">Precios en Live <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></h4>
+                    <p class="text-[11px] text-gray-400">Ofertas únicas dadas por el dueño</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 col-span-2 lg:col-span-1 border-t lg:border-t-0 lg:border-l border-white/10 pt-3 lg:pt-0 lg:pl-4">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-yellow-400 flex items-center justify-center shrink-0 border border-yellow-500/30">
+                    <i class="fa-solid fa-star text-base"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-white">4.9 / 5 Estrellas</h4>
+                    <p class="text-[11px] text-gray-400">+1,500 clientes satisfechos</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Catalog Section -->
-    <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-            <div>
-                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">Catálogo de iPhones</h2>
-                <p class="text-gray-500 text-sm mt-1">Elegí tu modelo preferido y configurá capacidad y color.</p>
+    <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Catalog Header & Search/Filters Bar -->
+        <div class="space-y-6 mb-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 font-bold text-xs uppercase tracking-wider mb-2">
+                        <i class="fa-brands fa-apple"></i> Modelos Disponibles 2026
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-gray-900">
+                        Catálogo de iPhones <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Originales</span>
+                    </h2>
+                    <p class="text-gray-500 text-sm mt-1">Elegí tu modelo preferido, configurá almacenamiento, color y cotizá tu entrega en el acto.</p>
+                </div>
+                
+                <!-- Quick WhatsApp Action -->
+                <a href="https://wa.me/5491100000000?text=Hola%20iStore%20Pro!%20Quisiera%20asesoramiento%20sobre%20un%20iPhone" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-4 py-2.5 rounded-full transition-all">
+                    <i class="fa-brands fa-whatsapp text-sm text-emerald-600"></i>
+                    <span>¿Necesitás asesoramiento? Hablá con un experto</span>
+                </a>
             </div>
-            <!-- Filter Pills -->
-            <div class="flex flex-wrap gap-2" id="filter-container">
-                <button onclick="filterProducts('all')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-900 text-white transition-all shadow-sm">Todos</button>
-                <button onclick="filterProducts('Pro')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-all">Línea Pro</button>
-                <button onclick="filterProducts('Standard')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-all">Línea Standard</button>
+
+            <!-- Controls: Search, Filters & Sorting Bar -->
+            <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+                <!-- Search Box -->
+                <div class="relative flex-1 max-w-md">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                    <input type="text" id="catalog-search" oninput="handleSearch(this.value)" placeholder="Buscar por modelo (ej: 17 Pro, 16...), color o chip..." class="w-full pl-9 pr-8 py-2 text-xs bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition-all">
+                    <button id="clear-search-btn" onclick="clearSearch()" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 text-xs hidden cursor-pointer">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Right Side: Filter Pills & Sorting -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <!-- Filter Pills -->
+                    <div class="flex items-center gap-1.5 p-1 bg-gray-100 rounded-xl" id="filter-container">
+                        <button onclick="filterProducts('all')" id="filter-all" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-gray-900 shadow-xs transition-all cursor-pointer">
+                            Todos <span class="ml-1 text-[10px] px-1.5 py-0.2 bg-gray-200 rounded-full font-semibold">6</span>
+                        </button>
+                        <button onclick="filterProducts('Pro')" id="filter-pro" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all cursor-pointer">
+                            Línea Pro <span class="ml-1 text-[10px] px-1.5 py-0.2 bg-gray-200 rounded-full font-semibold">2</span>
+                        </button>
+                        <button onclick="filterProducts('Standard')" id="filter-standard" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all cursor-pointer">
+                            Línea Standard <span class="ml-1 text-[10px] px-1.5 py-0.2 bg-gray-200 rounded-full font-semibold">4</span>
+                        </button>
+                    </div>
+
+                    <!-- Price Sort Dropdown -->
+                    <div class="flex items-center gap-1.5 text-xs text-gray-500">
+                        <i class="fa-solid fa-arrow-down-short-wide text-gray-400"></i>
+                        <select id="sort-select" onchange="handleSort(this.value)" class="bg-gray-100 border-none rounded-xl px-2.5 py-1.5 text-xs font-semibold text-gray-700 focus:outline-none cursor-pointer">
+                            <option value="featured">Destacados</option>
+                            <option value="price-asc">Precio: Menor a Mayor</option>
+                            <option value="price-desc">Precio: Mayor a Menor</option>
+                        </select>
+                    </div>
+
+                    <!-- Quick Compare Tool Button -->
+                    <a href="#comparador" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-blue-700 bg-blue-50/90 hover:bg-blue-100 border border-blue-200/70 transition-colors shadow-2xs">
+                        <i class="fa-solid fa-code-compare text-xs text-blue-600"></i>
+                        <span>Comparar Modelos</span>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -166,30 +447,171 @@
         </div>
     </main>
 
+    <!-- iPhone Comparison Section (Comparador de Modelos) -->
+    <section id="comparador" class="bg-gradient-to-b from-[#fbfbfd] via-white to-gray-50/50 py-16 border-t border-gray-200/80 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-blue-600 font-bold text-xs uppercase tracking-wider mb-3 border border-blue-200/60 shadow-2xs">
+                    <i class="fa-solid fa-code-compare"></i> Comparador Interactivo de iPhones
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-gray-900">
+                    ¿Cuál es el iPhone <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">ideal para vos?</span>
+                </h2>
+                <p class="text-gray-500 text-sm mt-2">
+                    Seleccioná dos modelos diferentes del catálogo y compará en tiempo real sus especificaciones de procesador, cámaras, pantalla, batería y funciones exclusivas para tomar la mejor decisión.
+                </p>
+
+                <!-- Quick Presets Pills -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mt-5">
+                    <span class="text-xs font-semibold text-gray-400 mr-1">Comparativas frecuentes:</span>
+                    <button onclick="setComparePreset(2, 3)" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 shadow-2xs transition-all cursor-pointer flex items-center gap-1.5">
+                        <span>⚡ 17 Pro vs 16</span>
+                    </button>
+                    <button onclick="setComparePreset(1, 2)" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 shadow-2xs transition-all cursor-pointer flex items-center gap-1.5">
+                        <span>👑 17 Pro Max vs 17 Pro</span>
+                    </button>
+                    <button onclick="setComparePreset(3, 4)" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 shadow-2xs transition-all cursor-pointer flex items-center gap-1.5">
+                        <span>📱 16 vs 16 Plus</span>
+                    </button>
+                    <button onclick="setComparePreset(3, 5)" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 shadow-2xs transition-all cursor-pointer flex items-center gap-1.5">
+                        <span>💰 16 vs 15</span>
+                    </button>
+                    <button onclick="setComparePreset(2, 5)" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 shadow-2xs transition-all cursor-pointer flex items-center gap-1.5">
+                        <span>🚀 17 Pro vs 15</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Comparison Container Card -->
+            <div class="bg-white rounded-3xl border border-gray-200/90 shadow-xl overflow-hidden">
+                <!-- Dual Model Header Bar -->
+                <div class="p-6 sm:p-8 bg-gradient-to-b from-gray-50/90 via-white to-gray-50/50 border-b border-gray-200/80">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 relative items-stretch">
+                        <!-- Model A Header Card -->
+                        <div id="compare-card-a" class="bg-white rounded-2xl p-5 border border-gray-200 shadow-xs flex flex-col justify-between transition-all">
+                            <!-- Model A Select & Details injected by JS -->
+                        </div>
+
+                        <!-- VS & Swap Floating Button (Desktop) -->
+                        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex-col items-center gap-1.5">
+                            <button onclick="swapCompareModels()" title="Intercambiar posiciones" class="w-11 h-11 rounded-full bg-gray-900 hover:bg-blue-600 text-white shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all cursor-pointer border-3 border-white">
+                                <i class="fa-solid fa-right-left text-xs"></i>
+                            </button>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-gray-400 bg-white px-2 py-0.5 rounded-full border border-gray-200 shadow-2xs">VS</span>
+                        </div>
+
+                        <!-- Model B Header Card -->
+                        <div id="compare-card-b" class="bg-white rounded-2xl p-5 border border-gray-200 shadow-xs flex flex-col justify-between transition-all">
+                            <!-- Model B Select & Details injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Swap button for mobile -->
+                    <div class="flex md:hidden justify-center my-4">
+                        <button onclick="swapCompareModels()" class="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 bg-gray-900 hover:bg-blue-600 text-white rounded-full shadow-md active:scale-95 transition-all">
+                            <i class="fa-solid fa-right-left text-xs"></i> Intercambiar Modelos
+                        </button>
+                    </div>
+
+                    <!-- Difference Summary Banner -->
+                    <div id="compare-diff-banner" class="mt-6 p-4 rounded-2xl bg-gradient-to-r from-blue-50 via-indigo-50/50 to-blue-50 border border-blue-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-blue-950">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Detailed Specs Comparison Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse min-w-[620px]">
+                        <thead>
+                            <tr class="bg-gray-100/70 border-b border-gray-200 text-xs font-bold text-gray-500 uppercase tracking-wider">
+                                <th class="py-3 px-6 w-1/3">Especificación</th>
+                                <th id="table-head-model-a" class="py-3 px-6 w-1/3 text-gray-900 font-extrabold">Modelo 1</th>
+                                <th id="table-head-model-b" class="py-3 px-6 w-1/3 text-gray-900 font-extrabold">Modelo 2</th>
+                            </tr>
+                        </thead>
+                        <tbody id="compare-table-body" class="divide-y divide-gray-100 text-xs sm:text-sm">
+                            <!-- Dynamic Rows Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Summary / Verdict Footer -->
+                <div id="compare-verdict-footer" class="p-6 sm:p-8 bg-gray-50/80 border-t border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Dynamic Verdict Injected by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Benefits Section -->
     <section id="beneficios" class="bg-white border-t border-gray-200 py-16 mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
-                    <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-shield-halved"></i>
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">¿Por qué elegir iStore Pro?</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-2">La mejor experiencia para tu nuevo iPhone</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
+                <!-- Plan Canje -->
+                <div class="p-6 rounded-2xl bg-emerald-50/60 border border-emerald-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </div>
+                        <h3 class="font-bold text-base text-gray-900 mb-1">Plan Canje</h3>
+                        <p class="text-gray-600 text-xs mb-4">Aceptamos tu equipo usado como parte de pago con cotización inmediata.</p>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">Garantía Asegurada</h3>
-                    <p class="text-gray-500 text-sm">Equipos 100% originales con garantía oficial por defectos de fábrica.</p>
+                    <button onclick="openTradeInModal()" class="inline-flex items-center justify-center gap-1 text-xs font-bold text-emerald-700 bg-emerald-100/70 hover:bg-emerald-200 py-2 px-3 rounded-xl transition-colors cursor-pointer">
+                        Cotizar Usado <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </button>
                 </div>
-                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
-                    <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-truck-fast"></i>
+                <!-- Precios TikTok Live -->
+                <div class="p-6 rounded-2xl bg-pink-50/60 border border-pink-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-pink-100 text-[#fe2c55] flex items-center justify-center text-xl">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+                        <h3 class="font-bold text-base text-gray-900 mb-1">TikTok Live</h3>
+                        <p class="text-gray-600 text-xs mb-4">Rebajas instantáneas y precios especiales anunciados en vivo por el dueño durante las transmisiones.</p>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">Envíos Rápidos</h3>
-                    <p class="text-gray-500 text-sm">Despacho inmediato a todo el país con seguimiento en tiempo real.</p>
+                    <button onclick="goToTikTokLive()" class="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-[#fe2c55] to-pink-500 hover:opacity-95 py-2 px-3 rounded-xl transition-all shadow-xs cursor-pointer">
+                        <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+                        <span>Entrar al Live</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                    </button>
                 </div>
-                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
-                    <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-credit-card"></i>
+                <!-- Garantía -->
+                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-bold text-base text-gray-900 mb-1">Garantía Oficial</h3>
+                        <p class="text-gray-500 text-xs">Equipos 100% originales con 1 año de garantía y soporte técnico oficial.</p>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">Múltiples Pagos</h3>
-                    <p class="text-gray-500 text-sm">Aboná mediante transferencia bancaria, tarjetas de crédito o efectivo.</p>
+                    <span class="text-[11px] font-semibold text-blue-600 pt-2">100% Original</span>
+                </div>
+                <!-- Envíos -->
+                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <h3 class="font-bold text-base text-gray-900 mb-1">Envíos Rápidos</h3>
+                        <p class="text-gray-500 text-xs">Despacho seguro a todo el país con número de tracking asegurado.</p>
+                    </div>
+                    <span class="text-[11px] font-semibold text-purple-600 pt-2">Despacho en 24h</span>
+                </div>
+                <!-- Múltiples Pagos -->
+                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                        <h3 class="font-bold text-base text-gray-900 mb-1">Múltiples Pagos</h3>
+                        <p class="text-gray-500 text-xs">Transferencia bancaria, tarjetas de crédito y cotizaciones en USD / moneda local.</p>
+                    </div>
+                    <span class="text-[11px] font-semibold text-teal-600 pt-2">Financiación</span>
                 </div>
             </div>
         </div>
@@ -246,18 +668,125 @@
                     <span id="cart-subtotal">$0</span>
                 </div>
                 <div class="flex justify-between text-sm text-gray-500">
-                    <span>Envío</span>
-                    <span class="text-emerald-600 font-medium">Gratis</span>
+                    <span>Envío asegurado</span>
+                    <span class="text-emerald-600 font-medium">Gratis a todo el país</span>
                 </div>
                 <div class="flex justify-between text-base font-bold text-gray-900 pt-2 border-t border-gray-200">
                     <span>Total</span>
                     <span id="cart-total" class="text-blue-600">$0</span>
                 </div>
             </div>
-            <button onclick="checkout()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2">
+            <button onclick="checkout()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2 cursor-pointer">
                 <span>Finalizar Compra</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
             </button>
+        </div>
+    </div>
+
+    <!-- Trade-In Plan Canje Modal -->
+    <div id="trade-in-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+        <div id="trade-in-content" class="bg-white rounded-3xl max-w-lg w-full shadow-2xl transform scale-95 transition-transform duration-300 overflow-hidden flex flex-col max-h-[90vh]">
+            <!-- Modal Header -->
+            <div class="p-6 bg-gradient-to-r from-zinc-900 to-black text-white relative">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                        <i class="fa-solid fa-arrows-rotate text-[11px] mr-1"></i> Cotizador Online
+                    </span>
+                    <span class="text-xs text-gray-400">iStore Pro</span>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-black text-white">Plan Canje: Entregá tu Usado</h3>
+                <p class="text-xs sm:text-sm text-gray-300 mt-1">Calculá en segundos cuánto te tomamos tu equipo actual.</p>
+                <button onclick="closeTradeInModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body (Form & Calculator) -->
+            <div class="p-6 overflow-y-auto space-y-4">
+                <!-- Step 1: Current iPhone Model -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-800 uppercase tracking-wider mb-1.5">1. ¿Qué modelo de iPhone tenés?</label>
+                    <select id="trade-in-model" onchange="calculateTradeIn()" class="w-full text-sm font-medium border border-gray-300 rounded-xl p-3 focus:outline-none focus:border-emerald-500 bg-gray-50">
+                        <option value="iPhone 11">iPhone 11</option>
+                        <option value="iPhone 11 Pro">iPhone 11 Pro</option>
+                        <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
+                        <option value="iPhone 12">iPhone 12</option>
+                        <option value="iPhone 12 Pro">iPhone 12 Pro</option>
+                        <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
+                        <option value="iPhone 13" selected>iPhone 13</option>
+                        <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+                        <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
+                        <option value="iPhone 14">iPhone 14</option>
+                        <option value="iPhone 14 Pro">iPhone 14 Pro</option>
+                        <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
+                        <option value="iPhone 15">iPhone 15</option>
+                        <option value="iPhone 15 Pro">iPhone 15 Pro</option>
+                        <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
+                        <option value="iPhone 16">iPhone 16</option>
+                    </select>
+                </div>
+
+                <!-- Step 2: Storage & Condition -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-800 uppercase tracking-wider mb-1.5">2. Capacidad</label>
+                        <select id="trade-in-storage" onchange="calculateTradeIn()" class="w-full text-sm font-medium border border-gray-300 rounded-xl p-3 focus:outline-none focus:border-emerald-500 bg-gray-50">
+                            <option value="64GB">64 GB</option>
+                            <option value="128GB" selected>128 GB</option>
+                            <option value="256GB">256 GB</option>
+                            <option value="512GB">512 GB</option>
+                            <option value="1TB">1 TB</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-800 uppercase tracking-wider mb-1.5">3. Estado del equipo</label>
+                        <select id="trade-in-condition" onchange="calculateTradeIn()" class="w-full text-sm font-medium border border-gray-300 rounded-xl p-3 focus:outline-none focus:border-emerald-500 bg-gray-50">
+                            <option value="1.0" selected>Impecable (Batería +85%, sin rayones)</option>
+                            <option value="0.9">Muy bueno (Marcas leves de uso)</option>
+                            <option value="0.75">Detalles estéticos o batería &lt;80%</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 3: Desired iPhone Model -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-800 uppercase tracking-wider mb-1.5">4. ¿A qué iPhone te gustaría saltar?</label>
+                    <select id="trade-in-target" onchange="calculateTradeIn()" class="w-full text-sm font-medium border border-gray-300 rounded-xl p-3 focus:outline-none focus:border-emerald-500 bg-gray-50">
+                        <option value="1399|iPhone 17 Pro Max 256GB" selected>iPhone 17 Pro Max 256GB ($1,399)</option>
+                        <option value="1199|iPhone 17 Pro 128GB">iPhone 17 Pro 128GB ($1,199)</option>
+                        <option value="899|iPhone 16 128GB">iPhone 16 128GB ($899)</option>
+                        <option value="1099|iPhone 16 Pro 128GB">iPhone 16 Pro 128GB ($1,099)</option>
+                        <option value="799|iPhone 15 128GB">iPhone 15 128GB ($799)</option>
+                    </select>
+                </div>
+
+                <!-- Live Results Box -->
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200/80 rounded-2xl p-4 sm:p-5">
+                    <div class="flex items-center justify-between text-xs text-emerald-800 font-semibold mb-2">
+                        <span>Valor estimado de toma de tu equipo:</span>
+                        <span id="trade-in-value-badge" class="bg-emerald-200/80 text-emerald-900 font-bold px-2.5 py-0.5 rounded-full text-sm">$430 USD</span>
+                    </div>
+                    <div class="border-t border-emerald-200/60 my-2 pt-2 flex items-center justify-between text-sm">
+                        <span class="text-gray-700 font-medium">Diferencia estimada a abonar:</span>
+                        <span id="trade-in-diff-badge" class="text-lg font-black text-gray-900">$969 USD</span>
+                    </div>
+                    <div class="mt-3 flex items-center gap-2 text-[11px] text-emerald-700 bg-white/80 p-2.5 rounded-xl border border-emerald-100">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-sm shrink-0"></i>
+                        <span>Incluye traspaso seguro de todas tus fotos, contactos y WhatsApp sin costo en el local o asistencia remota.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-6 bg-gray-50 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
+                <button onclick="sendTradeInWhatsApp()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2 cursor-pointer text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Consultar Plan Canje por WhatsApp</span>
+                </button>
+                <button onclick="closeTradeInModal()" class="sm:w-auto px-5 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 font-semibold transition-colors cursor-pointer text-sm">
+                    Cerrar
+                </button>
+            </div>
         </div>
     </div>
 
@@ -277,13 +806,30 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // Products Database
+        // Products Database with Comprehensive Technical Specifications for Comparison
         const products = [
             {
                 id: 1,
                 name: "iPhone 17 Pro Max",
                 category: "Pro",
                 tag: "Más Vendido",
+                chip: "Chip A19 Pro",
+                chipDetail: "A19 Pro con CPU de 6 núcleos, GPU de 6 núcleos y Neural Engine de 16 núcleos. Trazado de rayos por hardware.",
+                screen: "6.9″ ProMotion 120Hz",
+                screenDetail: "Super Retina XDR OLED de 6.9″ (2868 x 1320 px) con ProMotion 120Hz fluido y Pantalla Siempre Activa.",
+                camera: "48MP Pro Fusion (5x Tele)",
+                cameraDetail: "Sistema Pro de 48 MP: Principal Fusion + Ultra Gran Angular 48 MP + Teleobjetivo 5x (120 mm) con fotos en superalta resolución.",
+                battery: "Hasta 33 hrs",
+                batteryDetail: "Hasta 33 horas de reproducción de video (Máxima autonomía de toda la línea iPhone).",
+                video: "Grabación 4K Dolby Vision hasta 120 fps, ProRes y Log",
+                material: "Titanio aeroespacial Grado 5 con Ceramic Shield frontal y dorso mate texturizado",
+                connector: "USB-C compatible con USB 3 (hasta 10 Gb/s)",
+                controls: "Control de Cámara táctil y Botón de Acción multifunción",
+                aiReady: true,
+                aiDetail: "Totalmente optimizado para Apple Intelligence (Siri contextual, Genmoji, resúmenes y escritura)",
+                weight: "227 gramos",
+                water: "IP68 (hasta 6 metros durante 30 minutos)",
+                verdict: "La máxima potencia de Apple. Perfecto para creadores audiovisuales, gamers y quienes buscan la pantalla más grande y la batería más duradera.",
                 basePrice: 1399,
                 image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80",
                 storageOptions: [
@@ -301,9 +847,26 @@
                 id: 2,
                 name: "iPhone 17 Pro",
                 category: "Pro",
-                tag: "Nuevo",
+                tag: "Novedad 2026",
+                chip: "Chip A19 Pro",
+                chipDetail: "A19 Pro con CPU de 6 núcleos, GPU de 6 núcleos y Neural Engine de 16 núcleos. Potencia de consola portátil.",
+                screen: "6.3″ ProMotion 120Hz",
+                screenDetail: "Super Retina XDR OLED de 6.3″ (2622 x 1206 px) con ProMotion 120Hz fluido y Pantalla Siempre Activa.",
+                camera: "48MP Pro Fusion (5x Tele)",
+                cameraDetail: "Sistema Pro de 48 MP: Principal Fusion + Ultra Gran Angular 48 MP + Teleobjetivo 5x (120 mm). Control de Cámara táctil.",
+                battery: "Hasta 29 hrs",
+                batteryDetail: "Hasta 29 horas de reproducción de video. Carga inalámbrica MagSafe hasta 25W.",
+                video: "Grabación 4K Dolby Vision hasta 120 fps, ProRes y Audio Espacial",
+                material: "Titanio aeroespacial Grado 5 y vidrio mate texturizado",
+                connector: "USB-C compatible con USB 3 (hasta 10 Gb/s)",
+                controls: "Control de Cámara táctil y Botón de Acción multifunción",
+                aiReady: true,
+                aiDetail: "Totalmente optimizado para Apple Intelligence en español",
+                weight: "199 gramos",
+                water: "IP68 (hasta 6 metros durante 30 minutos)",
+                verdict: "Toda la potencia Pro, titanio y cámara 5x en un formato ergonómico de 6.3″ ideal para usar cómodamente con una sola mano.",
                 basePrice: 1199,
-                image: "https://images.unsplash.com/photo-1695048065099-3543d8a71c87?auto=format&fit=crop&w=600&q=80",
+                image: "/src/assets/images/iphone_17_pro_1790197119850.jpg",
                 storageOptions: [
                     { size: "128GB", priceAdd: 0 },
                     { size: "256GB", priceAdd: 150 },
@@ -320,6 +883,23 @@
                 name: "iPhone 16",
                 category: "Standard",
                 tag: "Popular",
+                chip: "Chip A18",
+                chipDetail: "A18 con CPU de 6 núcleos, GPU de 5 núcleos y Neural Engine de 16 núcleos optimizado para IA.",
+                screen: "6.1″ Super Retina XDR",
+                screenDetail: "Super Retina XDR OLED de 6.1″ (2556 x 1179 px) a 60Hz con Dynamic Island y 2000 nits de brillo pico.",
+                camera: "48MP Fusion + Ultra Wide",
+                cameraDetail: "Sistema de 2 cámaras de 48 MP Fusion con teleobjetivo 2x de calidad óptica + Ultra Gran Angular 12 MP con modo Macro.",
+                battery: "Hasta 22 hrs",
+                batteryDetail: "Hasta 22 horas de reproducción de video. Excelente autonomía para todo el día.",
+                video: "Grabación 4K Dolby Vision a 60 fps, Modo Cine y Audio Espacial",
+                material: "Aluminio aeroespacial con vidrio trasero tintado en masa y Ceramic Shield reforzado",
+                connector: "USB-C (USB 2 hasta 480 Mb/s)",
+                controls: "Botón Control de Cámara y Botón de Acción configurable",
+                aiReady: true,
+                aiDetail: "Compatible con Apple Intelligence (Siri avanzada, resúmenes y herramientas de escritura)",
+                weight: "170 gramos",
+                water: "IP68 (hasta 6 metros durante 30 minutos)",
+                verdict: "La mejor relación calidad-precio: Chip A18 veloz, Apple Intelligence y nuevo botón de cámara sin pagar precio Pro.",
                 basePrice: 899,
                 image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80",
                 storageOptions: [
@@ -339,6 +919,23 @@
                 name: "iPhone 16 Plus",
                 category: "Standard",
                 tag: "Pantalla Grande",
+                chip: "Chip A18",
+                chipDetail: "A18 con CPU de 6 núcleos, GPU de 5 núcleos y Neural Engine de 16 núcleos.",
+                screen: "6.7″ Super Retina XDR",
+                screenDetail: "Gran pantalla Super Retina XDR OLED de 6.7″ (2796 x 1290 px) a 60Hz con Dynamic Island.",
+                camera: "48MP Fusion + Ultra Wide",
+                cameraDetail: "Cámara principal 48 MP Fusion con teleobjetivo 2x + Ultra Gran Angular 12 MP con fotografía macro.",
+                battery: "Hasta 27 hrs",
+                batteryDetail: "Hasta 27 horas de reproducción de video continuo. Enorme autonomía sin pagar el precio de la gama Pro.",
+                video: "Grabación 4K Dolby Vision a 60 fps y Audio Espacial",
+                material: "Aluminio aeroespacial con dorso de vidrio tintado en masa",
+                connector: "USB-C (USB 2 hasta 480 Mb/s)",
+                controls: "Botón Control de Cámara y Botón de Acción",
+                aiReady: true,
+                aiDetail: "Compatible con Apple Intelligence",
+                weight: "199 gramos",
+                water: "IP68 (hasta 6 metros durante 30 minutos)",
+                verdict: "Amantes de pantallas grandes y batería de muy larga duración que no necesitan el triple lente de la línea Pro.",
                 basePrice: 999,
                 image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80",
                 storageOptions: [
@@ -357,6 +954,23 @@
                 name: "iPhone 15",
                 category: "Standard",
                 tag: "Oferta",
+                chip: "Chip A16 Bionic",
+                chipDetail: "A16 Bionic con CPU de 6 núcleos, GPU de 5 núcleos y Neural Engine de 16 núcleos.",
+                screen: "6.1″ Super Retina XDR",
+                screenDetail: "Super Retina XDR OLED de 6.1″ (2556 x 1179 px) a 60Hz con Dynamic Island y brillo de 2000 nits.",
+                camera: "48MP Principal Avanzada",
+                cameraDetail: "Cámara principal de 48 MP de superalta resolución + Ultra Gran Angular de 12 MP. Teleobjetivo 2x óptico.",
+                battery: "Hasta 20 hrs",
+                batteryDetail: "Hasta 20 horas de reproducción de video con conector universal USB-C y carga MagSafe 15W.",
+                video: "Grabación 4K Dolby Vision a 60 fps y Modo Cine",
+                material: "Aluminio aeroespacial con parte posterior de vidrio infusionado en color",
+                connector: "USB-C (USB 2 hasta 480 Mb/s)",
+                controls: "Interruptor tradicional de silencio / timbre",
+                aiReady: false,
+                aiDetail: "No compatible con Apple Intelligence",
+                weight: "171 gramos",
+                water: "IP68 (hasta 6 metros durante 30 minutos)",
+                verdict: "Quienes quieren disfrutar de Dynamic Island y puerto USB-C con excelente rendimiento a un precio más accesible.",
                 basePrice: 749,
                 image: "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=600&q=80",
                 storageOptions: [
@@ -374,6 +988,23 @@
                 name: "iPhone 14",
                 category: "Standard",
                 tag: "Económico",
+                chip: "Chip A15 Bionic",
+                chipDetail: "A15 Bionic con GPU de 5 núcleos y Neural Engine de 16 núcleos.",
+                screen: "6.1″ Super Retina XDR",
+                screenDetail: "Super Retina XDR OLED de 6.1″ (2532 x 1170 px) a 60Hz con notch tradicional y 1200 nits de brillo pico.",
+                camera: "12MP Dual Cámara",
+                cameraDetail: "Sistema dual de 12 MP (Principal + Ultra Gran Angular) con Photonic Engine y Modo Acción.",
+                battery: "Hasta 20 hrs",
+                batteryDetail: "Hasta 20 horas de reproducción de video. Puerto Lightning y carga MagSafe 15W.",
+                video: "Grabación 4K Dolby Vision a 60 fps y Modo Acción",
+                material: "Aluminio aeroespacial y parte posterior de vidrio brillante",
+                connector: "Lightning (USB 2)",
+                controls: "Interruptor tradicional de silencio / timbre",
+                aiReady: false,
+                aiDetail: "No compatible con Apple Intelligence",
+                weight: "172 gramos",
+                water: "IP68 (hasta 6 metros durante 30 minutos)",
+                verdict: "La puerta de entrada más económica al ecosistema Apple: rendimiento fluido, gran cámara y máxima confiabilidad.",
                 basePrice: 629,
                 image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=600&q=80",
                 storageOptions: [
@@ -388,33 +1019,51 @@
             }
         ];
 
+        // --- CONFIGURACIÓN DE TIKTOK LIVE (Plantilla editable) ---
+        // Podés reemplazar este enlace por el link directo al Live o perfil del dueño (ej: "https://www.tiktok.com/@tu_tienda/live")
+        const TIKTOK_LIVE_URL = "https://www.tiktok.com/live";
+
+        function goToTikTokLive() {
+            window.open(TIKTOK_LIVE_URL, '_blank');
+        }
+
         // State variables
         let cart = [];
         let currentSlideIndex = 0;
         let slideInterval;
         const selectedConfigs = {}; // productId -> { storageIndex, colorIndex }
 
+        // Comparison State
+        let compareModelAId = 2; // Default: iPhone 17 Pro
+        let compareModelBId = 3; // Default: iPhone 16
+        let compareList = [2, 3]; // Active models in comparison
+
         // Initialize App on Load
         window.onload = function() {
             renderProducts(products);
             initCarousel();
             updateCartUI();
+            initComparison();
         };
 
         // --- CAROUSEL LOGIC ---
         function initCarousel() {
             const track = document.getElementById('carousel-track');
+            if (!track) return;
             const totalSlides = track.children.length;
 
-            // Auto slide every 5 seconds
+            clearInterval(slideInterval);
             slideInterval = setInterval(() => {
                 currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
                 updateCarouselPosition();
-            }, 5000);
+            }, 5500);
+
+            updateCarouselPosition();
         }
 
         function updateCarouselPosition() {
             const track = document.getElementById('carousel-track');
+            if (!track) return;
             const totalSlides = track.children.length;
             if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
             if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
@@ -455,13 +1104,108 @@
             initCarousel();
         }
 
+        // --- TRADE-IN (PLAN CANJE) LOGIC ---
+        const tradeInBasePrices = {
+            "iPhone 11": { "64GB": 210, "128GB": 240, "256GB": 270 },
+            "iPhone 11 Pro": { "64GB": 260, "256GB": 310, "512GB": 350 },
+            "iPhone 11 Pro Max": { "64GB": 300, "256GB": 350, "512GB": 390 },
+            "iPhone 12": { "64GB": 290, "128GB": 330, "256GB": 370 },
+            "iPhone 12 Pro": { "128GB": 380, "256GB": 430, "512GB": 480 },
+            "iPhone 12 Pro Max": { "128GB": 440, "256GB": 490, "512GB": 540 },
+            "iPhone 13": { "128GB": 420, "256GB": 470, "512GB": 530 },
+            "iPhone 13 Pro": { "128GB": 530, "256GB": 590, "512GB": 660, "1TB": 720 },
+            "iPhone 13 Pro Max": { "128GB": 600, "256GB": 670, "512GB": 740, "1TB": 810 },
+            "iPhone 14": { "128GB": 520, "256GB": 580, "512GB": 650 },
+            "iPhone 14 Pro": { "128GB": 660, "256GB": 740, "512GB": 820, "1TB": 890 },
+            "iPhone 14 Pro Max": { "128GB": 740, "256GB": 820, "512GB": 900, "1TB": 980 },
+            "iPhone 15": { "128GB": 630, "256GB": 710, "512GB": 790 },
+            "iPhone 15 Pro": { "128GB": 810, "256GB": 890, "512GB": 980, "1TB": 1080 },
+            "iPhone 15 Pro Max": { "256GB": 910, "512GB": 1010, "1TB": 1120 },
+            "iPhone 16": { "128GB": 760, "256GB": 840, "512GB": 930 }
+        };
+
+        function openTradeInModal() {
+            const modal = document.getElementById('trade-in-modal');
+            const content = document.getElementById('trade-in-content');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            calculateTradeIn();
+        }
+
+        function closeTradeInModal() {
+            const modal = document.getElementById('trade-in-modal');
+            const content = document.getElementById('trade-in-content');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.add('scale-95');
+        }
+
+        function calculateTradeIn() {
+            const modelEl = document.getElementById('trade-in-model');
+            const storageEl = document.getElementById('trade-in-storage');
+            const condEl = document.getElementById('trade-in-condition');
+            const targetEl = document.getElementById('trade-in-target');
+            if (!modelEl || !storageEl || !condEl || !targetEl) return;
+
+            const model = modelEl.value;
+            const storage = storageEl.value;
+            const conditionMultiplier = parseFloat(condEl.value);
+            const targetSelect = targetEl.value;
+            const [targetPriceStr] = targetSelect.split('|');
+            const targetPrice = parseInt(targetPriceStr, 10);
+
+            // Calculate base
+            let base = 300;
+            if (tradeInBasePrices[model] && tradeInBasePrices[model][storage]) {
+                base = tradeInBasePrices[model][storage];
+            } else if (tradeInBasePrices[model]) {
+                const keys = Object.keys(tradeInBasePrices[model]);
+                base = tradeInBasePrices[model][keys[0]];
+            }
+
+            const estimatedValue = Math.round(base * conditionMultiplier);
+            const diff = Math.max(0, targetPrice - estimatedValue);
+
+            const valBadge = document.getElementById('trade-in-value-badge');
+            const diffBadge = document.getElementById('trade-in-diff-badge');
+            if (valBadge) valBadge.innerText = `$${estimatedValue} USD`;
+            if (diffBadge) diffBadge.innerText = `$${diff} USD`;
+        }
+
+        function sendTradeInWhatsApp() {
+            const model = document.getElementById('trade-in-model').value;
+            const storage = document.getElementById('trade-in-storage').value;
+            const condText = document.getElementById('trade-in-condition').selectedOptions[0].text;
+            const targetSelect = document.getElementById('trade-in-target').value;
+            const [, targetName] = targetSelect.split('|');
+            const estVal = document.getElementById('trade-in-value-badge').innerText;
+            const diff = document.getElementById('trade-in-diff-badge').innerText;
+
+            const text = encodeURIComponent(`¡Hola iStore Pro! 👋 Quiero cotizar el Plan Canje:\n\n📱 Mi equipo actual: ${model} (${storage})\n🔋 Condición: ${condText}\n💰 Cotización estimada: ${estVal}\n\n🎯 Quiero comprar: ${targetName}\n💵 Diferencia estimada: ${diff}\n\n¿Me indican cómo coordinar la entrega? Muchas gracias!`);
+
+            window.open(`https://wa.me/5491100000000?text=${text}`, '_blank');
+        }
+
         // --- PRODUCTS & CONFIGURATION LOGIC ---
+        let searchQuery = '';
+        let sortOrder = 'featured';
+
         function renderProducts(itemsToRender) {
             const grid = document.getElementById('products-grid');
             grid.innerHTML = '';
 
             if (itemsToRender.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400">No se encontraron productos.</div>`;
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 bg-white rounded-3xl border border-gray-200 p-8 shadow-xs">
+                        <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-base mb-1">No encontramos resultados</h4>
+                        <p class="text-xs text-gray-500 mb-4">Probá con otro término de búsqueda (ej: 17 Pro, 16, Titanio, etc.)</p>
+                        <button onclick="clearSearch()" class="px-4 py-2 bg-gray-900 text-white rounded-xl text-xs font-semibold hover:bg-black transition-colors cursor-pointer">
+                            Ver todos los modelos
+                        </button>
+                    </div>
+                `;
                 return;
             }
 
@@ -475,35 +1219,63 @@
                 const currentStorage = product.storageOptions[config.storageIdx];
                 const currentColor = product.colors[config.colorIdx];
                 const calculatedPrice = product.basePrice + currentStorage.priceAdd;
+                const isPro = product.category === 'Pro';
+
+                const isCompared = compareList.includes(product.id);
 
                 const card = document.createElement('div');
-                card.className = "bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group";
+                card.className = "bg-white rounded-3xl p-6 border border-gray-200/70 shadow-xs hover:shadow-2xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden";
                 
                 card.innerHTML = `
+                    <!-- Ambient Glow effect on hover -->
+                    <div class="absolute -top-14 -right-14 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/15 transition-all pointer-events-none"></div>
+
                     <div>
-                        <!-- Top Tag -->
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-700 rounded-full">${product.tag}</span>
-                            <span class="text-xs text-gray-400 font-medium">${product.category}</span>
+                        <!-- Top Tag Bar with Compare Toggle -->
+                        <div class="flex justify-between items-center mb-3 gap-2">
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <span class="text-[11px] font-bold px-2.5 py-1 rounded-full ${isPro ? 'bg-gradient-to-r from-amber-500/15 via-orange-500/15 to-rose-500/15 text-amber-900 border border-amber-300/40' : 'bg-blue-50 text-blue-700 border border-blue-200/50'}">
+                                    ${isPro ? '<i class="fa-solid fa-crown text-[9px] text-amber-600 mr-1"></i>' : ''}${product.tag}
+                                </span>
+                                ${product.aiReady ? `
+                                    <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gradient-to-r from-purple-500/15 via-pink-500/15 to-cyan-500/15 text-purple-900 border border-purple-200/80 shadow-2xs" title="Compatible con Apple Intelligence">
+                                        <i class="fa-solid fa-wand-magic-sparkles text-[9px] text-pink-500 animate-pulse"></i> Apple Intelligence
+                                    </span>
+                                ` : `
+                                    <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">${product.category}</span>
+                                `}
+                            </div>
+                            <!-- Compare Action Button -->
+                            <button onclick="toggleCompareProduct(${product.id})" class="text-[11px] font-bold px-2.5 py-1 rounded-full border transition-all flex items-center gap-1.5 cursor-pointer shrink-0 ${isCompared ? 'bg-blue-600 border-blue-600 text-white shadow-xs' : 'bg-gray-100 hover:bg-gray-200 text-gray-700 border-gray-200/90'}" title="${isCompared ? 'Quitar del comparador' : 'Comparar con otro modelo'}">
+                                <i class="fa-solid fa-code-compare text-[10px] ${isCompared ? 'text-white' : 'text-blue-500'}"></i>
+                                <span>${isCompared ? 'Comparando' : 'Comparar'}</span>
+                            </button>
                         </div>
                         
-                        <!-- Product Image -->
-                        <div class="h-64 flex items-center justify-center mb-6 overflow-hidden relative">
-                            <img src="${product.image}" alt="${product.name}" class="h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                        <!-- Product Image Container -->
+                        <div class="h-60 rounded-2xl bg-gradient-to-b from-gray-50 via-white to-gray-50/80 flex items-center justify-center mb-4 overflow-hidden relative border border-gray-100/80 p-4">
+                            <img src="${product.image}" alt="${product.name}" onerror="this.onerror=null;this.src='/src/assets/images/iphone_17_pro_1790197119850.jpg';" class="h-full object-contain group-hover:scale-108 transition-transform duration-500 drop-shadow-md">
+                        </div>
+
+                        <!-- Quick Specs Chips -->
+                        <div class="flex flex-wrap items-center gap-1.5 mb-3 text-[10px] text-gray-600 font-medium">
+                            <span class="bg-gray-100 px-2 py-0.5 rounded-md flex items-center gap-1"><i class="fa-solid fa-microchip text-blue-500 text-[9px]"></i> ${product.chip}</span>
+                            <span class="bg-gray-100 px-2 py-0.5 rounded-md flex items-center gap-1"><i class="fa-solid fa-mobile-screen text-gray-500 text-[9px]"></i> ${product.screen}</span>
                         </div>
 
                         <!-- Product Name -->
-                        <h3 class="font-bold text-xl text-gray-900 mb-2">${product.name}</h3>
+                        <h3 class="font-black text-xl text-gray-900 mb-3 tracking-tight">${product.name}</h3>
                         
                         <!-- Color Selector -->
                         <div class="mb-4">
-                            <div class="text-xs text-gray-500 mb-1.5 flex justify-between">
-                                <span>Color: <strong class="text-gray-800">${currentColor.name}</strong></span>
+                            <div class="text-xs text-gray-500 mb-1.5 flex justify-between items-center">
+                                <span>Color: <strong class="text-gray-900">${currentColor.name}</strong></span>
+                                <span class="text-[10px] text-gray-400">${product.colors.length} tonos</span>
                             </div>
-                            <div class="flex gap-2">
+                            <div class="flex items-center gap-2.5">
                                 ${product.colors.map((color, idx) => `
                                     <button onclick="selectColor(${product.id}, ${idx})" 
-                                        class="w-6 h-6 rounded-full border-2 transition-all ${config.colorIdx === idx ? 'border-blue-600 scale-110 shadow-sm' : 'border-gray-300 hover:scale-105'}"
+                                        class="w-6 h-6 rounded-full border-2 transition-all cursor-pointer ${config.colorIdx === idx ? 'border-blue-600 scale-125 ring-2 ring-blue-400/40 shadow-sm' : 'border-gray-300 hover:scale-110'}"
                                         style="background-color: ${color.hex};"
                                         title="${color.name}">
                                     </button>
@@ -512,27 +1284,43 @@
                         </div>
 
                         <!-- Storage Selector -->
-                        <div class="mb-6">
-                            <div class="text-xs text-gray-500 mb-1.5">Almacenamiento:</div>
+                        <div class="mb-4">
+                            <div class="text-xs text-gray-500 mb-1.5 flex justify-between">
+                                <span>Capacidad:</span>
+                                <span class="text-[10px] text-blue-600 font-bold">${currentStorage.size}</span>
+                            </div>
                             <div class="grid grid-cols-3 gap-2">
                                 ${product.storageOptions.map((storeOpt, idx) => `
                                     <button onclick="selectStorage(${product.id}, ${idx})" 
-                                        class="py-2 text-xs font-medium rounded-xl border transition-all ${config.storageIdx === idx ? 'border-blue-600 bg-blue-50/50 text-blue-600 font-bold' : 'border-gray-200 text-gray-600 hover:border-gray-300'}">
-                                        ${storeOpt.size}
+                                        class="py-2 px-1 text-xs rounded-xl border transition-all cursor-pointer text-center ${config.storageIdx === idx ? 'border-blue-600 bg-blue-50/70 text-blue-700 font-bold shadow-xs' : 'border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'}">
+                                        <div>${storeOpt.size}</div>
+                                        <div class="text-[9px] ${config.storageIdx === idx ? 'text-blue-600' : 'text-gray-400'}">${storeOpt.priceAdd === 0 ? 'Base' : `+$${storeOpt.priceAdd}`}</div>
                                     </button>
                                 `).join('')}
                             </div>
                         </div>
+
+                        <!-- Plan Canje Shortcut Banner -->
+                        <button onclick="openTradeInForModel('${product.name}')" class="w-full text-left mb-4 p-2.5 rounded-xl bg-emerald-50/80 hover:bg-emerald-100/80 border border-emerald-200/70 text-emerald-900 text-xs font-semibold flex items-center justify-between transition-colors cursor-pointer group/canje">
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-arrows-rotate text-emerald-600 text-[11px]"></i>
+                                <span>Plan Canje: pagá desde <strong class="text-emerald-700 font-bold">$${Math.max(199, calculatedPrice - 550)}</strong></span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-emerald-600 group-hover/canje:translate-x-0.5 transition-transform"></i>
+                        </button>
                     </div>
 
                     <!-- Price & Add to Cart -->
                     <div class="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
                         <div>
-                            <span class="text-xs text-gray-400 block">Precio final</span>
-                            <span class="text-2xl font-black text-gray-900">$${calculatedPrice}</span>
+                            <span class="text-[10px] text-gray-400 block font-bold uppercase tracking-wider">Precio final</span>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-2xl font-black text-gray-900 tracking-tight">$${calculatedPrice}</span>
+                                <span class="text-[10px] font-bold text-gray-500">USD</span>
+                            </div>
                         </div>
-                        <button onclick="addToCart(${product.id})" class="bg-gray-900 hover:bg-blue-600 text-white px-5 py-3 rounded-xl font-medium text-sm transition-all shadow-md flex items-center gap-2">
-                            <i class="fa-solid fa-cart-plus text-xs"></i>
+                        <button id="add-btn-${product.id}" onclick="addToCartWithFeedback(${product.id}, this)" class="bg-gray-900 hover:bg-blue-600 text-white px-4 py-3 rounded-xl font-bold text-xs transition-all shadow-md hover:shadow-blue-500/25 flex items-center gap-2 cursor-pointer active:scale-95">
+                            <i class="fa-solid fa-bag-shopping text-xs"></i>
                             <span>Agregar</span>
                         </button>
                     </div>
@@ -543,12 +1331,12 @@
 
         function selectColor(productId, colorIdx) {
             selectedConfigs[productId].colorIdx = colorIdx;
-            renderProducts(getCurrentFilteredProducts());
+            applyFiltersAndRender();
         }
 
         function selectStorage(productId, storageIdx) {
             selectedConfigs[productId].storageIdx = storageIdx;
-            renderProducts(getCurrentFilteredProducts());
+            applyFiltersAndRender();
         }
 
         let currentFilter = 'all';
@@ -556,21 +1344,666 @@
             currentFilter = category;
             
             // Update filter buttons UI
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => {
-                if (btn.textContent.includes(category === 'all' ? 'Todos' : category)) {
-                    btn.className = "filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-900 text-white transition-all shadow-sm";
-                } else {
-                    btn.className = "filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-all";
-                }
-            });
+            const btnAll = document.getElementById('filter-all');
+            const btnPro = document.getElementById('filter-pro');
+            const btnStd = document.getElementById('filter-standard');
 
-            renderProducts(getCurrentFilteredProducts());
+            const activeClass = "filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-gray-900 shadow-xs transition-all cursor-pointer";
+            const inactiveClass = "filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all cursor-pointer";
+
+            if (btnAll) btnAll.className = category === 'all' ? activeClass : inactiveClass;
+            if (btnPro) btnPro.className = category === 'Pro' ? activeClass : inactiveClass;
+            if (btnStd) btnStd.className = category === 'Standard' ? activeClass : inactiveClass;
+
+            applyFiltersAndRender();
+        }
+
+        function handleSearch(query) {
+            searchQuery = query.toLowerCase().trim();
+            const clearBtn = document.getElementById('clear-search-btn');
+            if (clearBtn) {
+                if (searchQuery.length > 0) clearBtn.classList.remove('hidden');
+                else clearBtn.classList.add('hidden');
+            }
+            applyFiltersAndRender();
+        }
+
+        function clearSearch() {
+            const input = document.getElementById('catalog-search');
+            if (input) input.value = '';
+            handleSearch('');
+        }
+
+        function handleSort(order) {
+            sortOrder = order;
+            applyFiltersAndRender();
+        }
+
+        function applyFiltersAndRender() {
+            let items = products;
+            if (currentFilter !== 'all') {
+                items = items.filter(p => p.category === currentFilter);
+            }
+
+            if (searchQuery) {
+                items = items.filter(p => {
+                    const matchName = p.name.toLowerCase().includes(searchQuery);
+                    const matchChip = (p.chip || '').toLowerCase().includes(searchQuery);
+                    const matchTag = (p.tag || '').toLowerCase().includes(searchQuery);
+                    const matchColor = p.colors.some(c => c.name.toLowerCase().includes(searchQuery));
+                    return matchName || matchChip || matchTag || matchColor;
+                });
+            }
+
+            if (sortOrder === 'price-asc') {
+                items = [...items].sort((a, b) => a.basePrice - b.basePrice);
+            } else if (sortOrder === 'price-desc') {
+                items = [...items].sort((a, b) => b.basePrice - a.basePrice);
+            }
+
+            renderProducts(items);
+        }
+
+        function openTradeInForModel(modelName) {
+            openTradeInModal();
+            const targetSelect = document.getElementById('trade-in-target');
+            if (targetSelect) {
+                for (let i = 0; i < targetSelect.options.length; i++) {
+                    if (targetSelect.options[i].text.includes(modelName)) {
+                        targetSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+                calculateTradeIn();
+            }
+        }
+
+        function addToCartWithFeedback(productId, btn) {
+            addToCart(productId);
+            if (btn) {
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check text-xs"></i><span>¡Listo!</span>';
+                btn.classList.add('bg-emerald-600');
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.classList.remove('bg-emerald-600');
+                }, 1200);
+            }
         }
 
         function getCurrentFilteredProducts() {
             if (currentFilter === 'all') return products;
             return products.filter(p => p.category === currentFilter);
+        }
+
+        // --- COMPARISON ENGINE & TABLE LOGIC ---
+        function initComparison() {
+            renderComparison();
+            updateCompareDockUI();
+        }
+
+        function setComparePreset(idA, idB) {
+            compareModelAId = idA;
+            compareModelBId = idB;
+            compareList = [idA, idB];
+            renderComparison();
+            applyFiltersAndRender();
+            updateCompareDockUI();
+            smoothScrollToCompare();
+        }
+
+        function changeCompareModel(slot, newId) {
+            newId = parseInt(newId);
+            if (slot === 'A') {
+                compareModelAId = newId;
+            } else {
+                compareModelBId = newId;
+            }
+            compareList = [compareModelAId, compareModelBId];
+            renderComparison();
+            applyFiltersAndRender();
+            updateCompareDockUI();
+        }
+
+        function swapCompareModels() {
+            const temp = compareModelAId;
+            compareModelAId = compareModelBId;
+            compareModelBId = temp;
+            compareList = [compareModelAId, compareModelBId];
+            renderComparison();
+            applyFiltersAndRender();
+            updateCompareDockUI();
+        }
+
+        function toggleCompareProduct(productId) {
+            const index = compareList.indexOf(productId);
+            if (index > -1) {
+                // Remove from compare list
+                compareList.splice(index, 1);
+                if (compareList.length === 1) {
+                    if (compareModelAId === productId) {
+                        compareModelAId = compareList[0];
+                    } else {
+                        compareModelBId = compareList[0];
+                    }
+                }
+            } else {
+                // Add to compare list
+                if (compareList.length < 2) {
+                    compareList.push(productId);
+                    if (compareList.length === 1) {
+                        compareModelAId = productId;
+                    } else {
+                        compareModelBId = productId;
+                    }
+                } else {
+                    // Already have 2: keep the newest one as B and shift A to previous B
+                    compareModelAId = compareModelBId;
+                    compareModelBId = productId;
+                    compareList = [compareModelAId, compareModelBId];
+                }
+            }
+
+            // Ensure valid distinct models when at least 1 item is chosen
+            if (compareList.length >= 2) {
+                compareModelAId = compareList[0];
+                compareModelBId = compareList[1];
+            } else if (compareList.length === 1) {
+                compareModelAId = compareList[0];
+                const other = products.find(p => p.id !== compareModelAId);
+                if (other) compareModelBId = other.id;
+            }
+
+            renderComparison();
+            applyFiltersAndRender();
+            updateCompareDockUI();
+
+            if (compareList.length === 2) {
+                updateCompareDockUI(true);
+            }
+        }
+
+        function updateCompareDockUI(showAttention = false) {
+            const dock = document.getElementById('floating-compare-dock');
+            const title = document.getElementById('compare-dock-title');
+            const subtitle = document.getElementById('compare-dock-subtitle');
+            if (!dock || !title || !subtitle) return;
+
+            if (compareList.length === 0) {
+                dock.classList.add('translate-y-28', 'opacity-0', 'pointer-events-none');
+                dock.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            } else if (compareList.length === 1) {
+                const p1 = products.find(p => p.id === compareList[0]);
+                title.innerText = `1/2 para comparar: ${p1 ? p1.name : ''}`;
+                subtitle.innerText = "Hacé clic en otro modelo para comparar lado a lado";
+                dock.classList.remove('translate-y-28', 'opacity-0', 'pointer-events-none');
+                dock.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            } else {
+                const p1 = products.find(p => p.id === compareModelAId);
+                const p2 = products.find(p => p.id === compareModelBId);
+                title.innerText = `Comparando: ${p1 ? p1.name : 'Modelo 1'} vs ${p2 ? p2.name : 'Modelo 2'}`;
+                subtitle.innerText = "Tabla comparativa de chip, cámara, pantalla y batería lista";
+                dock.classList.remove('translate-y-28', 'opacity-0', 'pointer-events-none');
+                dock.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            }
+        }
+
+        function clearCompareSelection() {
+            compareList = [];
+            updateCompareDockUI();
+            applyFiltersAndRender();
+        }
+
+        function smoothScrollToCompare() {
+            const el = document.getElementById('comparador');
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function renderComparison() {
+            const cardA = document.getElementById('compare-card-a');
+            const cardB = document.getElementById('compare-card-b');
+            const tableHeadA = document.getElementById('table-head-model-a');
+            const tableHeadB = document.getElementById('table-head-model-b');
+            const tableBody = document.getElementById('compare-table-body');
+            const diffBanner = document.getElementById('compare-diff-banner');
+            const verdictFooter = document.getElementById('compare-verdict-footer');
+
+            if (!cardA || !cardB || !tableBody) return;
+
+            const modelA = products.find(p => p.id === compareModelAId) || products[1];
+            const modelB = products.find(p => p.id === compareModelBId) || products[2];
+
+            // Render Model A Card
+            cardA.innerHTML = `
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-md">Modelo A</span>
+                        <div class="relative">
+                            <select onchange="changeCompareModel('A', this.value)" class="text-xs font-bold text-gray-800 bg-gray-100 hover:bg-gray-200 py-1.5 px-3 rounded-xl border-none focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">
+                                ${products.map(p => `
+                                    <option value="${p.id}" ${p.id === modelA.id ? 'selected' : ''}>${p.name}</option>
+                                `).join('')}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-b from-gray-50 to-white border border-gray-200/80 p-2 flex items-center justify-center shrink-0">
+                            <img src="${modelA.image}" alt="${modelA.name}" onerror="this.onerror=null;this.src='/src/assets/images/iphone_17_pro_1790197119850.jpg';" class="max-h-full max-w-full object-contain drop-shadow-sm">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1 flex-wrap">
+                                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${modelA.category === 'Pro' ? 'bg-amber-100 text-amber-800' : 'bg-blue-100 text-blue-800'}">${modelA.tag}</span>
+                                ${modelA.aiReady ? '<span class="text-[9px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full"><i class="fa-solid fa-wand-magic-sparkles text-[8px]"></i> IA</span>' : ''}
+                            </div>
+                            <h3 class="text-xl font-black text-gray-900 tracking-tight leading-tight">${modelA.name}</h3>
+                            <div class="text-gray-500 text-xs mt-1">Desde <span class="text-lg font-extrabold text-gray-900">$${modelA.basePrice}</span> USD</div>
+                            
+                            <!-- Color circles preview -->
+                            <div class="flex items-center gap-1.5 mt-2">
+                                ${modelA.colors.map(c => `
+                                    <span class="w-3.5 h-3.5 rounded-full border border-gray-300" style="background-color: ${c.hex};" title="${c.name}"></span>
+                                `).join('')}
+                                <span class="text-[10px] text-gray-400 ml-1">${modelA.colors.length} colores</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-3 border-t border-gray-100 flex items-center gap-2">
+                    <button onclick="addToCartWithFeedback(${modelA.id}, this)" class="flex-1 bg-gray-900 hover:bg-blue-600 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer">
+                        <i class="fa-solid fa-bag-shopping text-xs"></i>
+                        <span>Comprar</span>
+                    </button>
+                    <button onclick="openTradeInForModel('${modelA.name}')" class="px-3 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-xl border border-emerald-200 transition-colors flex items-center justify-center gap-1 cursor-pointer" title="Cotizar con Plan Canje">
+                        <i class="fa-solid fa-arrows-rotate text-[11px] text-emerald-600"></i>
+                        <span class="hidden sm:inline">Canje</span>
+                    </button>
+                </div>
+            `;
+
+            // Render Model B Card
+            cardB.innerHTML = `
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-purple-600 bg-purple-50 px-2.5 py-0.5 rounded-md">Modelo B</span>
+                        <div class="relative">
+                            <select onchange="changeCompareModel('B', this.value)" class="text-xs font-bold text-gray-800 bg-gray-100 hover:bg-gray-200 py-1.5 px-3 rounded-xl border-none focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer">
+                                ${products.map(p => `
+                                    <option value="${p.id}" ${p.id === modelB.id ? 'selected' : ''}>${p.name}</option>
+                                `).join('')}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-b from-gray-50 to-white border border-gray-200/80 p-2 flex items-center justify-center shrink-0">
+                            <img src="${modelB.image}" alt="${modelB.name}" onerror="this.onerror=null;this.src='/src/assets/images/iphone_17_pro_1790197119850.jpg';" class="max-h-full max-w-full object-contain drop-shadow-sm">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1 flex-wrap">
+                                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${modelB.category === 'Pro' ? 'bg-amber-100 text-amber-800' : 'bg-blue-100 text-blue-800'}">${modelB.tag}</span>
+                                ${modelB.aiReady ? '<span class="text-[9px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full"><i class="fa-solid fa-wand-magic-sparkles text-[8px]"></i> IA</span>' : ''}
+                            </div>
+                            <h3 class="text-xl font-black text-gray-900 tracking-tight leading-tight">${modelB.name}</h3>
+                            <div class="text-gray-500 text-xs mt-1">Desde <span class="text-lg font-extrabold text-gray-900">$${modelB.basePrice}</span> USD</div>
+                            
+                            <!-- Color circles preview -->
+                            <div class="flex items-center gap-1.5 mt-2">
+                                ${modelB.colors.map(c => `
+                                    <span class="w-3.5 h-3.5 rounded-full border border-gray-300" style="background-color: ${c.hex};" title="${c.name}"></span>
+                                `).join('')}
+                                <span class="text-[10px] text-gray-400 ml-1">${modelB.colors.length} colores</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-3 border-t border-gray-100 flex items-center gap-2">
+                    <button onclick="addToCartWithFeedback(${modelB.id}, this)" class="flex-1 bg-gray-900 hover:bg-blue-600 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer">
+                        <i class="fa-solid fa-bag-shopping text-xs"></i>
+                        <span>Comprar</span>
+                    </button>
+                    <button onclick="openTradeInForModel('${modelB.name}')" class="px-3 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-xl border border-emerald-200 transition-colors flex items-center justify-center gap-1 cursor-pointer" title="Cotizar con Plan Canje">
+                        <i class="fa-solid fa-arrows-rotate text-[11px] text-emerald-600"></i>
+                        <span class="hidden sm:inline">Canje</span>
+                    </button>
+                </div>
+            `;
+
+            // Update Table Headers
+            if (tableHeadA) tableHeadA.innerHTML = `<span class="text-blue-700">${modelA.name}</span>`;
+            if (tableHeadB) tableHeadB.innerHTML = `<span class="text-purple-700">${modelB.name}</span>`;
+
+            // Difference Banner
+            const priceDiff = Math.abs(modelA.basePrice - modelB.basePrice);
+            const higher = modelA.basePrice >= modelB.basePrice ? modelA : modelB;
+            const lower = modelA.basePrice >= modelB.basePrice ? modelB : modelA;
+            
+            if (modelA.id === modelB.id) {
+                diffBanner.innerHTML = `
+                    <div class="flex items-center gap-2 text-amber-800">
+                        <i class="fa-solid fa-circle-info text-amber-500 text-sm"></i>
+                        <span>Has seleccionado el mismo modelo. Elegí dos modelos diferentes arriba para comparar sus diferencias técnicas.</span>
+                    </div>
+                `;
+            } else {
+                diffBanner.innerHTML = `
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xs shrink-0 font-black">
+                            Δ$${priceDiff}
+                        </div>
+                        <div>
+                            <span class="font-bold text-gray-900 block text-xs">Diferencia de inversión: $${priceDiff} USD</span>
+                            <span class="text-gray-600 text-[11px]">
+                                <strong>${higher.name}</strong> suma frente a <strong>${lower.name}</strong>: 
+                                ${higher.chip !== lower.chip ? `procesador <span class="text-blue-700 font-bold">${higher.chip}</span>, ` : ''}
+                                ${higher.screen.includes('ProMotion') && !lower.screen.includes('ProMotion') ? '<span class="text-blue-700 font-bold">ProMotion 120Hz fluido</span>, ' : ''}
+                                ${higher.camera.includes('5x') && !lower.camera.includes('5x') ? '<span class="text-blue-700 font-bold">Teleobjetivo 5x Pro</span>, ' : ''}
+                                ${higher.battery !== lower.battery ? `<span class="text-blue-700 font-bold">${higher.battery} de autonomía</span>, ` : ''}
+                                ${higher.aiReady && !lower.aiReady ? '<span class="text-purple-700 font-bold">soporte para Apple Intelligence</span>' : 'construcción avanzada.'}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="shrink-0 flex items-center gap-2">
+                        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white text-gray-800 border border-gray-200 font-semibold text-[11px] shadow-2xs">
+                            <i class="fa-solid fa-shield-check text-emerald-500"></i> Ambos con 1 Año Garantía
+                        </span>
+                    </div>
+                `;
+            }
+
+            // Specs Table Builder
+            const specCategories = [
+                {
+                    name: "⚡ Procesador & Rendimiento (Chip)",
+                    rows: [
+                        {
+                            label: "Procesador Principal",
+                            icon: "fa-microchip",
+                            valA: `<strong>${modelA.chip}</strong><br><span class="text-gray-500 text-xs font-normal">${modelA.chipDetail}</span>`,
+                            valB: `<strong>${modelB.chip}</strong><br><span class="text-gray-500 text-xs font-normal">${modelB.chipDetail}</span>`,
+                            highlight: modelA.chip !== modelB.chip
+                        },
+                        {
+                            label: "Apple Intelligence (IA)",
+                            icon: "fa-wand-magic-sparkles",
+                            valA: modelA.aiReady ? 
+                                `<span class="inline-flex items-center gap-1 text-purple-700 bg-purple-50 font-bold px-2 py-0.5 rounded-md border border-purple-200"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Totalmente Compatible</span><br><span class="text-gray-500 text-xs font-normal">${modelA.aiDetail}</span>` : 
+                                `<span class="inline-flex items-center gap-1 text-gray-500 bg-gray-100 font-medium px-2 py-0.5 rounded-md"><i class="fa-solid fa-xmark text-red-400 text-xs"></i> No compatible</span>`,
+                            valB: modelB.aiReady ? 
+                                `<span class="inline-flex items-center gap-1 text-purple-700 bg-purple-50 font-bold px-2 py-0.5 rounded-md border border-purple-200"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Totalmente Compatible</span><br><span class="text-gray-500 text-xs font-normal">${modelB.aiDetail}</span>` : 
+                                `<span class="inline-flex items-center gap-1 text-gray-500 bg-gray-100 font-medium px-2 py-0.5 rounded-md"><i class="fa-solid fa-xmark text-red-400 text-xs"></i> No compatible</span>`,
+                            highlight: modelA.aiReady !== modelB.aiReady
+                        },
+                        {
+                            label: "Rendimiento Gráfico",
+                            icon: "fa-gamepad",
+                            valA: modelA.category === 'Pro' ? 
+                                '<strong class="text-blue-700">GPU 6 núcleos con Ray Tracing por hardware</strong><br><span class="text-gray-500 text-xs font-normal">Capaz de correr juegos AAA de consola con iluminación hiperrealista</span>' : 
+                                '<strong>GPU 5 núcleos optimizada</strong><br><span class="text-gray-500 text-xs font-normal">Rendimiento ultrafluido en multitarea y títulos de Apple Arcade</span>',
+                            valB: modelB.category === 'Pro' ? 
+                                '<strong class="text-blue-700">GPU 6 núcleos con Ray Tracing por hardware</strong><br><span class="text-gray-500 text-xs font-normal">Capaz de correr juegos AAA de consola con iluminación hiperrealista</span>' : 
+                                '<strong>GPU 5 núcleos optimizada</strong><br><span class="text-gray-500 text-xs font-normal">Rendimiento ultrafluido en multitarea y títulos de Apple Arcade</span>',
+                            highlight: modelA.category !== modelB.category
+                        }
+                    ]
+                },
+                {
+                    name: "📸 Cámaras & Video",
+                    rows: [
+                        {
+                            label: "Configuración de Cámaras",
+                            icon: "fa-camera",
+                            valA: `<strong>${modelA.camera}</strong><br><span class="text-gray-500 text-xs font-normal">${modelA.cameraDetail}</span>`,
+                            valB: `<strong>${modelB.camera}</strong><br><span class="text-gray-500 text-xs font-normal">${modelB.cameraDetail}</span>`,
+                            highlight: modelA.camera !== modelB.camera
+                        },
+                        {
+                            label: "Zoom Óptico",
+                            icon: "fa-magnifying-glass-plus",
+                            valA: modelA.camera.includes('5x') ? 
+                                '<span class="px-2 py-0.5 bg-blue-50 text-blue-800 font-bold rounded-md border border-blue-200">5x Óptico (120 mm)</span> + Zoom digital hasta 25x' : 
+                                '<span class="px-2 py-0.5 bg-gray-100 text-gray-700 font-medium rounded-md">2x Calidad Óptica</span> + Zoom digital hasta 10x',
+                            valB: modelB.camera.includes('5x') ? 
+                                '<span class="px-2 py-0.5 bg-blue-50 text-blue-800 font-bold rounded-md border border-blue-200">5x Óptico (120 mm)</span> + Zoom digital hasta 25x' : 
+                                '<span class="px-2 py-0.5 bg-gray-100 text-gray-700 font-medium rounded-md">2x Calidad Óptica</span> + Zoom digital hasta 10x',
+                            highlight: modelA.camera.includes('5x') !== modelB.camera.includes('5x')
+                        },
+                        {
+                            label: "Grabación de Video",
+                            icon: "fa-video",
+                            valA: modelA.video,
+                            valB: modelB.video,
+                            highlight: modelA.video !== modelB.video
+                        },
+                        {
+                            label: "Botón Control de Cámara",
+                            icon: "fa-sliders",
+                            valA: modelA.controls.includes('Control de Cámara') ? 
+                                '<span class="text-emerald-700 font-bold flex items-center gap-1"><i class="fa-solid fa-check"></i> Botón táctil capacitivo de zafiro</span>' : 
+                                '<span class="text-gray-400">Interruptor de sonido clásico</span>',
+                            valB: modelB.controls.includes('Control de Cámara') ? 
+                                '<span class="text-emerald-700 font-bold flex items-center gap-1"><i class="fa-solid fa-check"></i> Botón táctil capacitivo de zafiro</span>' : 
+                                '<span class="text-gray-400">Interruptor de sonido clásico</span>',
+                            highlight: modelA.controls.includes('Control de Cámara') !== modelB.controls.includes('Control de Cámara')
+                        }
+                    ]
+                },
+                {
+                    name: "📱 Pantalla & Experiencia Visual",
+                    rows: [
+                        {
+                            label: "Tamaño & Panel OLED",
+                            icon: "fa-mobile-screen-button",
+                            valA: `<strong>${modelA.screen}</strong><br><span class="text-gray-500 text-xs font-normal">${modelA.screenDetail}</span>`,
+                            valB: `<strong>${modelB.screen}</strong><br><span class="text-gray-500 text-xs font-normal">${modelB.screenDetail}</span>`,
+                            highlight: modelA.screen !== modelB.screen
+                        },
+                        {
+                            label: "Tasa de Refresco (Fluidez)",
+                            icon: "fa-gauge-high",
+                            valA: modelA.screen.includes('ProMotion') ? 
+                                '<span class="px-2 py-0.5 bg-blue-100 text-blue-900 font-extrabold rounded-md">ProMotion 120Hz Adaptativo</span><br><span class="text-gray-500 text-xs font-normal">Animaciones el doble de fluidas y respuesta táctil instantánea</span>' : 
+                                '<span class="px-2 py-0.5 bg-gray-100 text-gray-700 font-medium rounded-md">60Hz Estándar</span>',
+                            valB: modelB.screen.includes('ProMotion') ? 
+                                '<span class="px-2 py-0.5 bg-blue-100 text-blue-900 font-extrabold rounded-md">ProMotion 120Hz Adaptativo</span><br><span class="text-gray-500 text-xs font-normal">Animaciones el doble de fluidas y respuesta táctil instantánea</span>' : 
+                                '<span class="px-2 py-0.5 bg-gray-100 text-gray-700 font-medium rounded-md">60Hz Estándar</span>',
+                            highlight: modelA.screen.includes('ProMotion') !== modelB.screen.includes('ProMotion')
+                        },
+                        {
+                            label: "Pantalla Siempre Activa (Always-On)",
+                            icon: "fa-sun",
+                            valA: modelA.category === 'Pro' ? 
+                                '<span class="text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> Sí, atenuación a 1Hz</span>' : 
+                                '<span class="text-gray-400"><i class="fa-solid fa-xmark"></i> No</span>',
+                            valB: modelB.category === 'Pro' ? 
+                                '<span class="text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> Sí, atenuación a 1Hz</span>' : 
+                                '<span class="text-gray-400"><i class="fa-solid fa-xmark"></i> No</span>',
+                            highlight: (modelA.category === 'Pro') !== (modelB.category === 'Pro')
+                        },
+                        {
+                            label: "Dynamic Island",
+                            icon: "fa-capsules",
+                            valA: modelA.id <= 5 ? 
+                                '<span class="text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> Sí (Alertas y actividades en vivo)</span>' : 
+                                '<span class="text-gray-400">Notch tradicional</span>',
+                            valB: modelB.id <= 5 ? 
+                                '<span class="text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> Sí (Alertas y actividades en vivo)</span>' : 
+                                '<span class="text-gray-400">Notch tradicional</span>',
+                            highlight: (modelA.id <= 5) !== (modelB.id <= 5)
+                        }
+                    ]
+                },
+                {
+                    name: "🔋 Batería, Autonomía & Conexiones",
+                    rows: [
+                        {
+                            label: "Autonomía de Batería (Video)",
+                            icon: "fa-battery-full",
+                            valA: `<strong class="text-base text-gray-900">${modelA.battery}</strong><br><span class="text-gray-500 text-xs font-normal">${modelA.batteryDetail}</span>`,
+                            valB: `<strong class="text-base text-gray-900">${modelB.battery}</strong><br><span class="text-gray-500 text-xs font-normal">${modelB.batteryDetail}</span>`,
+                            highlight: modelA.battery !== modelB.battery
+                        },
+                        {
+                            label: "Puerto & Velocidad",
+                            icon: "fa-plug",
+                            valA: `<strong>${modelA.connector}</strong>`,
+                            valB: `<strong>${modelB.connector}</strong>`,
+                            highlight: modelA.connector !== modelB.connector
+                        },
+                        {
+                            label: "Material del Chasis",
+                            icon: "fa-layer-group",
+                            valA: modelA.material,
+                            valB: modelB.material,
+                            highlight: modelA.material !== modelB.material
+                        },
+                        {
+                            label: "Peso Oficial",
+                            icon: "fa-weight-hanging",
+                            valA: modelA.weight,
+                            valB: modelB.weight,
+                            highlight: modelA.weight !== modelB.weight
+                        },
+                        {
+                            label: "Resistencia al Agua",
+                            icon: "fa-droplet",
+                            valA: modelA.water,
+                            valB: modelB.water,
+                            highlight: false
+                        }
+                    ]
+                },
+                {
+                    name: "💰 Opciones de Compra & Plan Canje",
+                    rows: [
+                        {
+                            label: "Precio de Partida",
+                            icon: "fa-tag",
+                            valA: `<span class="text-lg font-black text-gray-900">$${modelA.basePrice} USD</span>`,
+                            valB: `<span class="text-lg font-black text-gray-900">$${modelB.basePrice} USD</span>`,
+                            highlight: modelA.basePrice !== modelB.basePrice
+                        },
+                        {
+                            label: "Capacidades Disponibles",
+                            icon: "fa-hard-drive",
+                            valA: modelA.storageOptions.map(s => s.size).join(' • '),
+                            valB: modelB.storageOptions.map(s => s.size).join(' • '),
+                            highlight: false
+                        },
+                        {
+                            label: "Estimado con Plan Canje",
+                            icon: "fa-arrows-rotate",
+                            valA: `<span class="text-emerald-700 font-bold">Desde $${Math.max(199, modelA.basePrice - 550)} USD</span><br><span class="text-[11px] text-gray-500 font-normal">Entregando tu iPhone anterior</span>`,
+                            valB: `<span class="text-emerald-700 font-bold">Desde $${Math.max(199, modelB.basePrice - 550)} USD</span><br><span class="text-[11px] text-gray-500 font-normal">Entregando tu iPhone anterior</span>`,
+                            highlight: false
+                        }
+                    ]
+                }
+            ];
+
+            let tableHtml = '';
+            specCategories.forEach(cat => {
+                // Category Header
+                tableHtml += `
+                    <tr class="bg-gray-50/90 font-bold text-gray-800 text-xs border-y border-gray-200">
+                        <td colspan="3" class="py-2.5 px-6 tracking-wide">
+                            ${cat.name}
+                        </td>
+                    </tr>
+                `;
+
+                cat.rows.forEach(row => {
+                    tableHtml += `
+                        <tr class="hover:bg-blue-50/20 transition-colors ${row.highlight ? 'bg-amber-50/15' : ''}">
+                            <td class="py-3.5 px-6 font-semibold text-gray-700 align-top">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid ${row.icon} text-gray-400 text-xs shrink-0"></i>
+                                    <span>${row.label}</span>
+                                </div>
+                            </td>
+                            <td class="py-3.5 px-6 text-gray-800 align-top ${row.highlight ? 'font-medium' : ''}">
+                                ${row.valA}
+                            </td>
+                            <td class="py-3.5 px-6 text-gray-800 align-top ${row.highlight ? 'font-medium' : ''}">
+                                ${row.valB}
+                            </td>
+                        </tr>
+                    `;
+                });
+            });
+
+            tableBody.innerHTML = tableHtml;
+
+            // Verdict Footer Cards
+            verdictFooter.innerHTML = `
+                <!-- Verdict Model A -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Veredicto iStore Pro</span>
+                        </div>
+                        <h4 class="text-lg font-black text-gray-900 mb-2">¿Por qué elegir el ${modelA.name}?</h4>
+                        <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                            ${modelA.verdict}
+                        </p>
+                        <ul class="text-xs text-gray-700 space-y-2 mb-6">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-500 text-xs"></i>
+                                <span>${modelA.chip} con arquitectura de última generación</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-500 text-xs"></i>
+                                <span>Pantalla ${modelA.screen} con tecnología OLED Retina</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-500 text-xs"></i>
+                                <span>${modelA.battery} de autonomía de batería continua</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="addToCartWithFeedback(${modelA.id}, this)" class="w-full bg-gray-900 hover:bg-blue-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fa-solid fa-bag-shopping text-xs"></i>
+                        <span>Elegir ${modelA.name} ($${modelA.basePrice} USD)</span>
+                    </button>
+                </div>
+
+                <!-- Verdict Model B -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Veredicto iStore Pro</span>
+                        </div>
+                        <h4 class="text-lg font-black text-gray-900 mb-2">¿Por qué elegir el ${modelB.name}?</h4>
+                        <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                            ${modelB.verdict}
+                        </p>
+                        <ul class="text-xs text-gray-700 space-y-2 mb-6">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-500 text-xs"></i>
+                                <span>${modelB.chip} con alto rendimiento y eficiencia energética</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-500 text-xs"></i>
+                                <span>Pantalla ${modelB.screen} de altísima fidelidad cromática</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-500 text-xs"></i>
+                                <span>${modelB.battery} para todo tu día sin recargar</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="addToCartWithFeedback(${modelB.id}, this)" class="w-full bg-gray-900 hover:bg-purple-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fa-solid fa-bag-shopping text-xs"></i>
+                        <span>Elegir ${modelB.name} ($${modelB.basePrice} USD)</span>
+                    </button>
+                </div>
+            `;
         }
 
         // --- CART MANAGEMENT ---
@@ -694,7 +2127,7 @@
             toggleCart();
             cart = [];
             updateCartUI();
-            showModal("¡Compra Realizada con Éxito!", "Gracias por tu pedido en iStore Pro. Te enviaremos el comprobante y seguimiento a tu correo electrónico.", "success");
+            showModal("¡Compra Iniciada con Éxito!", "Gracias por tu pedido en iStore Pro. Te enviaremos el comprobante y los detalles de seguimiento de tu envío por correo electrónico y WhatsApp.", "success");
         }
 
         function showModal(title, message, type = "success") {
@@ -724,5 +2157,42 @@
             content.classList.add('scale-95');
         }
     </script>
+
+    <!-- Floating Compare Dock (Appears when products are marked for comparison) -->
+    <aside id="floating-compare-dock" aria-label="Bandeja de Comparación" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-gray-950/95 backdrop-blur-xl text-white px-4 sm:px-5 py-3 rounded-2xl shadow-2xl border border-white/20 transition-all duration-300 transform translate-y-28 opacity-0 pointer-events-none flex items-center justify-between gap-3 sm:gap-5 max-w-lg w-[94%] sm:w-auto">
+        <div class="flex items-center gap-2.5 overflow-hidden">
+            <div class="w-8 h-8 rounded-xl bg-blue-600/30 border border-blue-400/40 text-blue-400 flex items-center justify-center shrink-0 text-xs">
+                <i class="fa-solid fa-code-compare"></i>
+            </div>
+            <div class="text-left leading-tight overflow-hidden">
+                <div id="compare-dock-title" class="text-xs font-bold text-white whitespace-nowrap overflow-hidden text-ellipsis">Comparando 2 modelos</div>
+                <div id="compare-dock-subtitle" class="text-[10px] text-gray-400 truncate">Hacé clic para ver la tabla comparativa</div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+            <a href="#comparador" onclick="smoothScrollToCompare()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer">
+                <span>Ver Comparativa</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="clearCompareSelection()" title="Limpiar comparación" class="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white flex items-center justify-center text-xs transition-colors cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Floating WhatsApp Assistance Widget -->
+    <aside aria-label="Asistencia WhatsApp" class="fixed bottom-6 right-6 z-40 flex items-center group">
+        <!-- Tooltip Pill -->
+        <a href="https://wa.me/5491100000000?text=Hola%20iStore%20Pro!%20Quisiera%20consultar%20por%20un%20iPhone%20o%20cotizar%20Plan%20Canje" target="_blank" class="mr-3 hidden sm:flex items-center gap-2 bg-white text-gray-800 text-xs font-semibold py-2 px-3.5 rounded-full shadow-lg border border-gray-200 hover:shadow-xl transition-all group-hover:scale-105">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>¿Dudas sobre el Plan Canje? <strong class="text-emerald-600">Escribinos</strong></span>
+        </a>
+        <!-- Action Button -->
+        <a href="https://wa.me/5491100000000?text=Hola%20iStore%20Pro!%20Quisiera%20consultar%20por%20un%20iPhone%20o%20cotizar%20Plan%20Canje" target="_blank" class="w-13 h-13 sm:w-14 sm:h-14 bg-gradient-to-tr from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:shadow-2xl hover:shadow-emerald-500/40 hover:scale-108 active:scale-95 transition-all duration-300 relative focus:outline-none" title="Chatear por WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-white"></span>
+        </a>
+    </aside>
 </body>
 </html>
