@@ -52,6 +52,15 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #a8a8a8;
         }
+        /* Cinta de confianza: desplazamiento continuo de borde a borde */
+        @keyframes trust-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .trust-marquee-track {
+            width: max-content;
+            animation: trust-marquee 30s linear infinite;
+        }
     </style>
 </head>
 <body class="bg-[#fbfbfd] text-[#1d1d1f] antialiased selection:bg-blue-500 selection:text-white">
@@ -329,54 +338,112 @@
         </div>
     </section>
 
-    <!-- Trust & Quality Strip -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div class="bg-gradient-to-r from-gray-900 via-zinc-900 to-black rounded-2xl p-4 sm:p-5 text-white shadow-xl border border-white/10 grid grid-cols-2 lg:grid-cols-5 gap-4">
-            <div class="flex items-center gap-3">
+    <!-- Trust & Quality Strip (cinta desplazante de borde a borde) -->
+    <section class="overflow-hidden bg-gradient-to-r from-gray-900 via-zinc-900 to-black border-y border-white/10 py-4">
+        <div class="trust-marquee-track flex items-center gap-8 sm:gap-12 text-white">
+            <!-- Grupo 1 -->
+            <div class="flex items-center gap-3 shrink-0">
                 <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/30">
                     <i class="fa-solid fa-shield-halved text-base"></i>
                 </div>
-                <div>
+                <div class="whitespace-nowrap">
                     <h4 class="text-xs font-bold text-white">Garantía Oficial</h4>
                     <p class="text-[11px] text-gray-400">1 año escrita y soporte oficial</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3 cursor-pointer" onclick="openTradeInModal()">
+            <span class="text-white/15 text-lg shrink-0">•</span>
+            <div class="flex items-center gap-3 cursor-pointer shrink-0" onclick="openTradeInModal()">
                 <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
                     <i class="fa-solid fa-arrows-rotate text-base"></i>
                 </div>
-                <div>
+                <div class="whitespace-nowrap">
                     <h4 class="text-xs font-bold text-emerald-400 flex items-center gap-1">Plan Canje <i class="fa-solid fa-chevron-right text-[8px]"></i></h4>
                     <p class="text-[11px] text-gray-400">Tomamos tu iPhone usado</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3">
+            <span class="text-white/15 text-lg shrink-0">•</span>
+            <div class="flex items-center gap-3 shrink-0">
                 <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 border border-purple-500/30">
                     <i class="fa-solid fa-truck-fast text-base"></i>
                 </div>
-                <div>
+                <div class="whitespace-nowrap">
                     <h4 class="text-xs font-bold text-white">Envío Asegurado</h4>
                     <p class="text-[11px] text-gray-400">Gratis a todo el país</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3 cursor-pointer group" onclick="goToTikTokLive()">
+            <span class="text-white/15 text-lg shrink-0">•</span>
+            <div class="flex items-center gap-3 cursor-pointer group shrink-0" onclick="goToTikTokLive()">
                 <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-[#fe2c55] flex items-center justify-center shrink-0 border border-pink-500/30 group-hover:scale-105 transition-transform">
                     <i class="fa-brands fa-tiktok text-base"></i>
                 </div>
-                <div>
+                <div class="whitespace-nowrap">
                     <h4 class="text-xs font-bold text-[#fe2c55] flex items-center gap-1">Precios en Live <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></h4>
                     <p class="text-[11px] text-gray-400">Ofertas únicas dadas por el dueño</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3 col-span-2 lg:col-span-1 border-t lg:border-t-0 lg:border-l border-white/10 pt-3 lg:pt-0 lg:pl-4">
+            <span class="text-white/15 text-lg shrink-0">•</span>
+            <div class="flex items-center gap-3 shrink-0">
                 <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-yellow-400 flex items-center justify-center shrink-0 border border-yellow-500/30">
                     <i class="fa-solid fa-star text-base"></i>
                 </div>
-                <div>
+                <div class="whitespace-nowrap">
                     <h4 class="text-xs font-bold text-white">4.9 / 5 Estrellas</h4>
                     <p class="text-[11px] text-gray-400">+1,500 clientes satisfechos</p>
                 </div>
             </div>
+            <span class="text-white/15 text-lg shrink-0">•</span>
+
+            <!-- Grupo 2 (duplicado idéntico para el loop continuo sin cortes) -->
+            <div class="flex items-center gap-3 shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/30">
+                    <i class="fa-solid fa-shield-halved text-base"></i>
+                </div>
+                <div class="whitespace-nowrap">
+                    <h4 class="text-xs font-bold text-white">Garantía Oficial</h4>
+                    <p class="text-[11px] text-gray-400">1 año escrita y soporte oficial</p>
+                </div>
+            </div>
+            <span class="text-white/15 text-lg shrink-0">•</span>
+            <div class="flex items-center gap-3 cursor-pointer shrink-0" onclick="openTradeInModal()">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
+                    <i class="fa-solid fa-arrows-rotate text-base"></i>
+                </div>
+                <div class="whitespace-nowrap">
+                    <h4 class="text-xs font-bold text-emerald-400 flex items-center gap-1">Plan Canje <i class="fa-solid fa-chevron-right text-[8px]"></i></h4>
+                    <p class="text-[11px] text-gray-400">Tomamos tu iPhone usado</p>
+                </div>
+            </div>
+            <span class="text-white/15 text-lg shrink-0">•</span>
+            <div class="flex items-center gap-3 shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 border border-purple-500/30">
+                    <i class="fa-solid fa-truck-fast text-base"></i>
+                </div>
+                <div class="whitespace-nowrap">
+                    <h4 class="text-xs font-bold text-white">Envío Asegurado</h4>
+                    <p class="text-[11px] text-gray-400">Gratis a todo el país</p>
+                </div>
+            </div>
+            <span class="text-white/15 text-lg shrink-0">•</span>
+            <div class="flex items-center gap-3 cursor-pointer group shrink-0" onclick="goToTikTokLive()">
+                <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-[#fe2c55] flex items-center justify-center shrink-0 border border-pink-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-brands fa-tiktok text-base"></i>
+                </div>
+                <div class="whitespace-nowrap">
+                    <h4 class="text-xs font-bold text-[#fe2c55] flex items-center gap-1">Precios en Live <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></h4>
+                    <p class="text-[11px] text-gray-400">Ofertas únicas dadas por el dueño</p>
+                </div>
+            </div>
+            <span class="text-white/15 text-lg shrink-0">•</span>
+            <div class="flex items-center gap-3 shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-yellow-400 flex items-center justify-center shrink-0 border border-yellow-500/30">
+                    <i class="fa-solid fa-star text-base"></i>
+                </div>
+                <div class="whitespace-nowrap">
+                    <h4 class="text-xs font-bold text-white">4.9 / 5 Estrellas</h4>
+                    <p class="text-[11px] text-gray-400">+1,500 clientes satisfechos</p>
+                </div>
+            </div>
+            <span class="text-white/15 text-lg shrink-0">•</span>
         </div>
     </section>
 
@@ -615,7 +682,7 @@
                             <i class="fa-solid fa-credit-card"></i>
                         </div>
                         <h3 class="font-bold text-base text-gray-900 mb-1">Múltiples Pagos</h3>
-                        <p class="text-gray-500 text-xs">Transferencia bancaria, tarjetas de crédito y cotizaciones en USD / moneda local.</p>
+                        <p class="text-gray-500 text-xs">Transferencia bancaria, tarjetas de crédito y todos los medios de pago en pesos argentinos.</p>
                     </div>
                     <span class="text-[11px] font-semibold text-teal-600 pt-2">Financiación</span>
                 </div>
@@ -835,11 +902,11 @@
                 <div>
                     <label class="block text-xs font-bold text-gray-800 uppercase tracking-wider mb-1.5">4. ¿A qué iPhone te gustaría saltar?</label>
                     <select id="trade-in-target" onchange="calculateTradeIn()" class="w-full text-sm font-medium border border-gray-300 rounded-xl p-3 focus:outline-none focus:border-emerald-500 bg-gray-50">
-                        <option value="1399|iPhone 17 Pro Max 256GB" selected>iPhone 17 Pro Max 256GB ($1,399)</option>
-                        <option value="1199|iPhone 17 Pro 128GB">iPhone 17 Pro 128GB ($1,199)</option>
-                        <option value="899|iPhone 16 128GB">iPhone 16 128GB ($899)</option>
-                        <option value="1099|iPhone 16 Pro 128GB">iPhone 16 Pro 128GB ($1,099)</option>
-                        <option value="799|iPhone 15 128GB">iPhone 15 128GB ($799)</option>
+                        <option value="3100000|iPhone 17 Pro Max 256GB" selected>iPhone 17 Pro Max 256GB ($3.100.000)</option>
+                        <option value="2650000|iPhone 17 Pro 128GB">iPhone 17 Pro 128GB ($2.650.000)</option>
+                        <option value="1700000|iPhone 16 128GB">iPhone 16 128GB ($1.700.000)</option>
+                        <option value="2050000|iPhone 16 Pro 128GB">iPhone 16 Pro 128GB ($2.050.000)</option>
+                        <option value="1350000|iPhone 15 128GB">iPhone 15 128GB ($1.350.000)</option>
                     </select>
                 </div>
 
@@ -847,11 +914,11 @@
                 <div class="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200/80 rounded-2xl p-4 sm:p-5">
                     <div class="flex items-center justify-between text-xs text-emerald-800 font-semibold mb-2">
                         <span>Valor estimado de toma de tu equipo:</span>
-                        <span id="trade-in-value-badge" class="bg-emerald-200/80 text-emerald-900 font-bold px-2.5 py-0.5 rounded-full text-sm">$430 USD</span>
+                        <span id="trade-in-value-badge" class="bg-emerald-200/80 text-emerald-900 font-bold px-2.5 py-0.5 rounded-full text-sm">$620.000</span>
                     </div>
                     <div class="border-t border-emerald-200/60 my-2 pt-2 flex items-center justify-between text-sm">
                         <span class="text-gray-700 font-medium">Diferencia estimada a abonar:</span>
-                        <span id="trade-in-diff-badge" class="text-lg font-black text-gray-900">$969 USD</span>
+                        <span id="trade-in-diff-badge" class="text-lg font-black text-gray-900">$2.480.000</span>
                     </div>
                     <div class="mt-3 flex items-center gap-2 text-[11px] text-emerald-700 bg-white/80 p-2.5 rounded-xl border border-emerald-100">
                         <i class="fa-solid fa-circle-check text-emerald-600 text-sm shrink-0"></i>
@@ -889,6 +956,11 @@
 
     <!-- JavaScript Application Logic -->
     <script>
+        // Formatea un número como pesos argentinos: $1.700.000
+        function formatARS(value) {
+            return '$' + Math.round(value).toLocaleString('es-AR');
+        }
+
         // Products Database with Comprehensive Technical Specifications for Comparison
         const products = [
             {
@@ -913,12 +985,12 @@
                 weight: "227 gramos",
                 water: "IP68 (hasta 6 metros durante 30 minutos)",
                 verdict: "La máxima potencia de Apple. Perfecto para creadores audiovisuales, gamers y quienes buscan la pantalla más grande y la batería más duradera.",
-                basePrice: 1399,
+                basePrice: 3100000,
                 image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80",
                 storageOptions: [
                     { size: "256GB", priceAdd: 0 },
-                    { size: "512GB", priceAdd: 200 },
-                    { size: "1TB", priceAdd: 400 }
+                    { size: "512GB", priceAdd: 450000 },
+                    { size: "1TB", priceAdd: 900000 }
                 ],
                 colors: [
                     { name: "Titanio Natural", hex: "#b8b2a7" },
@@ -948,12 +1020,12 @@
                 weight: "199 gramos",
                 water: "IP68 (hasta 6 metros durante 30 minutos)",
                 verdict: "Toda la potencia Pro, titanio y cámara 5x en un formato ergonómico de 6.3″ ideal para usar cómodamente con una sola mano.",
-                basePrice: 1199,
+                basePrice: 2650000,
                 image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
                 storageOptions: [
                     { size: "128GB", priceAdd: 0 },
-                    { size: "256GB", priceAdd: 150 },
-                    { size: "512GB", priceAdd: 350 }
+                    { size: "256GB", priceAdd: 330000 },
+                    { size: "512GB", priceAdd: 780000 }
                 ],
                 colors: [
                     { name: "Titanio Desierto", hex: "#c5b49f" },
@@ -983,12 +1055,12 @@
                 weight: "170 gramos",
                 water: "IP68 (hasta 6 metros durante 30 minutos)",
                 verdict: "La mejor relación calidad-precio: Chip A18 veloz, Apple Intelligence y nuevo botón de cámara sin pagar precio Pro.",
-                basePrice: 899,
+                basePrice: 1700000,
                 image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80",
                 storageOptions: [
                     { size: "128GB", priceAdd: 0 },
-                    { size: "256GB", priceAdd: 130 },
-                    { size: "512GB", priceAdd: 300 }
+                    { size: "256GB", priceAdd: 250000 },
+                    { size: "512GB", priceAdd: 570000 }
                 ],
                 colors: [
                     { name: "Ultramar", hex: "#3b5998" },
@@ -1019,12 +1091,12 @@
                 weight: "199 gramos",
                 water: "IP68 (hasta 6 metros durante 30 minutos)",
                 verdict: "Amantes de pantallas grandes y batería de muy larga duración que no necesitan el triple lente de la línea Pro.",
-                basePrice: 999,
+                basePrice: 1900000,
                 image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80",
                 storageOptions: [
                     { size: "128GB", priceAdd: 0 },
-                    { size: "256GB", priceAdd: 130 },
-                    { size: "512GB", priceAdd: 300 }
+                    { size: "256GB", priceAdd: 250000 },
+                    { size: "512GB", priceAdd: 570000 }
                 ],
                 colors: [
                     { name: "Blanco", hex: "#f0f0f0" },
@@ -1054,11 +1126,11 @@
                 weight: "171 gramos",
                 water: "IP68 (hasta 6 metros durante 30 minutos)",
                 verdict: "Quienes quieren disfrutar de Dynamic Island y puerto USB-C con excelente rendimiento a un precio más accesible.",
-                basePrice: 749,
+                basePrice: 1350000,
                 image: "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=600&q=80",
                 storageOptions: [
                     { size: "128GB", priceAdd: 0 },
-                    { size: "256GB", priceAdd: 120 }
+                    { size: "256GB", priceAdd: 220000 }
                 ],
                 colors: [
                     { name: "Azul", hex: "#85c1e9" },
@@ -1088,11 +1160,11 @@
                 weight: "172 gramos",
                 water: "IP68 (hasta 6 metros durante 30 minutos)",
                 verdict: "La puerta de entrada más económica al ecosistema Apple: rendimiento fluido, gran cámara y máxima confiabilidad.",
-                basePrice: 629,
+                basePrice: 1050000,
                 image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=600&q=80",
                 storageOptions: [
                     { size: "128GB", priceAdd: 0 },
-                    { size: "256GB", priceAdd: 100 }
+                    { size: "256GB", priceAdd: 170000 }
                 ],
                 colors: [
                     { name: "Medianoche", hex: "#2c3e50" },
@@ -1189,22 +1261,22 @@
 
         // --- TRADE-IN (PLAN CANJE) LOGIC ---
         const tradeInBasePrices = {
-            "iPhone 11": { "64GB": 210, "128GB": 240, "256GB": 270 },
-            "iPhone 11 Pro": { "64GB": 260, "256GB": 310, "512GB": 350 },
-            "iPhone 11 Pro Max": { "64GB": 300, "256GB": 350, "512GB": 390 },
-            "iPhone 12": { "64GB": 290, "128GB": 330, "256GB": 370 },
-            "iPhone 12 Pro": { "128GB": 380, "256GB": 430, "512GB": 480 },
-            "iPhone 12 Pro Max": { "128GB": 440, "256GB": 490, "512GB": 540 },
-            "iPhone 13": { "128GB": 420, "256GB": 470, "512GB": 530 },
-            "iPhone 13 Pro": { "128GB": 530, "256GB": 590, "512GB": 660, "1TB": 720 },
-            "iPhone 13 Pro Max": { "128GB": 600, "256GB": 670, "512GB": 740, "1TB": 810 },
-            "iPhone 14": { "128GB": 520, "256GB": 580, "512GB": 650 },
-            "iPhone 14 Pro": { "128GB": 660, "256GB": 740, "512GB": 820, "1TB": 890 },
-            "iPhone 14 Pro Max": { "128GB": 740, "256GB": 820, "512GB": 900, "1TB": 980 },
-            "iPhone 15": { "128GB": 630, "256GB": 710, "512GB": 790 },
-            "iPhone 15 Pro": { "128GB": 810, "256GB": 890, "512GB": 980, "1TB": 1080 },
-            "iPhone 15 Pro Max": { "256GB": 910, "512GB": 1010, "1TB": 1120 },
-            "iPhone 16": { "128GB": 760, "256GB": 840, "512GB": 930 }
+            "iPhone 11": { "64GB": 420000, "128GB": 480000, "256GB": 540000 },
+            "iPhone 11 Pro": { "64GB": 520000, "256GB": 620000, "512GB": 700000 },
+            "iPhone 11 Pro Max": { "64GB": 600000, "256GB": 700000, "512GB": 780000 },
+            "iPhone 12": { "64GB": 580000, "128GB": 660000, "256GB": 740000 },
+            "iPhone 12 Pro": { "128GB": 760000, "256GB": 860000, "512GB": 960000 },
+            "iPhone 12 Pro Max": { "128GB": 880000, "256GB": 980000, "512GB": 1080000 },
+            "iPhone 13": { "128GB": 840000, "256GB": 940000, "512GB": 1060000 },
+            "iPhone 13 Pro": { "128GB": 1060000, "256GB": 1180000, "512GB": 1320000, "1TB": 1440000 },
+            "iPhone 13 Pro Max": { "128GB": 1200000, "256GB": 1340000, "512GB": 1480000, "1TB": 1620000 },
+            "iPhone 14": { "128GB": 1040000, "256GB": 1160000, "512GB": 1300000 },
+            "iPhone 14 Pro": { "128GB": 1320000, "256GB": 1480000, "512GB": 1640000, "1TB": 1780000 },
+            "iPhone 14 Pro Max": { "128GB": 1480000, "256GB": 1640000, "512GB": 1800000, "1TB": 1960000 },
+            "iPhone 15": { "128GB": 1260000, "256GB": 1420000, "512GB": 1580000 },
+            "iPhone 15 Pro": { "128GB": 1620000, "256GB": 1780000, "512GB": 1960000, "1TB": 2160000 },
+            "iPhone 15 Pro Max": { "256GB": 1820000, "512GB": 2020000, "1TB": 2240000 },
+            "iPhone 16": { "128GB": 1520000, "256GB": 1680000, "512GB": 1860000 }
         };
 
         function openTradeInModal() {
@@ -1237,7 +1309,7 @@
             const targetPrice = parseInt(targetPriceStr, 10);
 
             // Calculate base
-            let base = 300;
+            let base = 600000;
             if (tradeInBasePrices[model] && tradeInBasePrices[model][storage]) {
                 base = tradeInBasePrices[model][storage];
             } else if (tradeInBasePrices[model]) {
@@ -1250,8 +1322,8 @@
 
             const valBadge = document.getElementById('trade-in-value-badge');
             const diffBadge = document.getElementById('trade-in-diff-badge');
-            if (valBadge) valBadge.innerText = `$${estimatedValue} USD`;
-            if (diffBadge) diffBadge.innerText = `$${diff} USD`;
+            if (valBadge) valBadge.innerText = formatARS(estimatedValue);
+            if (diffBadge) diffBadge.innerText = formatARS(diff);
         }
 
         function sendTradeInWhatsApp() {
@@ -1377,7 +1449,7 @@
                                     <button onclick="selectStorage(${product.id}, ${idx})" 
                                         class="py-2 px-1 text-xs rounded-xl border transition-all cursor-pointer text-center ${config.storageIdx === idx ? 'border-blue-600 bg-blue-50/70 text-blue-700 font-bold shadow-xs' : 'border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'}">
                                         <div>${storeOpt.size}</div>
-                                        <div class="text-[9px] ${config.storageIdx === idx ? 'text-blue-600' : 'text-gray-400'}">${storeOpt.priceAdd === 0 ? 'Base' : `+$${storeOpt.priceAdd}`}</div>
+                                        <div class="text-[9px] ${config.storageIdx === idx ? 'text-blue-600' : 'text-gray-400'}">${storeOpt.priceAdd === 0 ? 'Base' : `+${formatARS(storeOpt.priceAdd)}`}</div>
                                     </button>
                                 `).join('')}
                             </div>
@@ -1387,7 +1459,7 @@
                         <button onclick="openTradeInForModel('${product.name}')" class="w-full text-left mb-4 p-2.5 rounded-xl bg-emerald-50/80 hover:bg-emerald-100/80 border border-emerald-200/70 text-emerald-900 text-xs font-semibold flex items-center justify-between transition-colors cursor-pointer group/canje">
                             <span class="flex items-center gap-1.5">
                                 <i class="fa-solid fa-arrows-rotate text-emerald-600 text-[11px]"></i>
-                                <span>Plan Canje: pagá desde <strong class="text-emerald-700 font-bold">$${Math.max(199, calculatedPrice - 550)}</strong></span>
+                                <span>Plan Canje: pagá desde <strong class="text-emerald-700 font-bold">${formatARS(Math.max(400000, calculatedPrice - 1100000))}</strong></span>
                             </span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-emerald-600 group-hover/canje:translate-x-0.5 transition-transform"></i>
                         </button>
@@ -1398,8 +1470,7 @@
                         <div>
                             <span class="text-[10px] text-gray-400 block font-bold uppercase tracking-wider">Precio final</span>
                             <div class="flex items-baseline gap-1">
-                                <span class="text-2xl font-black text-gray-900 tracking-tight">$${calculatedPrice}</span>
-                                <span class="text-[10px] font-bold text-gray-500">USD</span>
+                                <span class="text-2xl font-black text-gray-900 tracking-tight">${formatARS(calculatedPrice)}</span>
                             </div>
                         </div>
                         <button id="add-btn-${product.id}" onclick="addToCartWithFeedback(${product.id}, this)" class="bg-gray-900 hover:bg-blue-600 text-white px-4 py-3 rounded-xl font-bold text-xs transition-all shadow-md hover:shadow-blue-500/25 flex items-center gap-2 cursor-pointer active:scale-95">
@@ -1651,7 +1722,7 @@
                                 ${modelA.aiReady ? '<span class="text-[9px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full"><i class="fa-solid fa-wand-magic-sparkles text-[8px]"></i> IA</span>' : ''}
                             </div>
                             <h3 class="text-xl font-black text-gray-900 tracking-tight leading-tight">${modelA.name}</h3>
-                            <div class="text-gray-500 text-xs mt-1">Desde <span class="text-lg font-extrabold text-gray-900">$${modelA.basePrice}</span> USD</div>
+                            <div class="text-gray-500 text-xs mt-1">Desde <span class="text-lg font-extrabold text-gray-900">${formatARS(modelA.basePrice)}</span></div>
                             
                             <!-- Color circles preview -->
                             <div class="flex items-center gap-1.5 mt-2">
@@ -1700,7 +1771,7 @@
                                 ${modelB.aiReady ? '<span class="text-[9px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full"><i class="fa-solid fa-wand-magic-sparkles text-[8px]"></i> IA</span>' : ''}
                             </div>
                             <h3 class="text-xl font-black text-gray-900 tracking-tight leading-tight">${modelB.name}</h3>
-                            <div class="text-gray-500 text-xs mt-1">Desde <span class="text-lg font-extrabold text-gray-900">$${modelB.basePrice}</span> USD</div>
+                            <div class="text-gray-500 text-xs mt-1">Desde <span class="text-lg font-extrabold text-gray-900">${formatARS(modelB.basePrice)}</span></div>
                             
                             <!-- Color circles preview -->
                             <div class="flex items-center gap-1.5 mt-2">
@@ -1744,11 +1815,11 @@
             } else {
                 diffBanner.innerHTML = `
                     <div class="flex items-center gap-2.5">
-                        <div class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xs shrink-0 font-black">
-                            Δ$${priceDiff}
+                        <div class="px-2.5 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-[10px] shrink-0 font-black whitespace-nowrap">
+                            Δ ${formatARS(priceDiff)}
                         </div>
                         <div>
-                            <span class="font-bold text-gray-900 block text-xs">Diferencia de inversión: $${priceDiff} USD</span>
+                            <span class="font-bold text-gray-900 block text-xs">Diferencia de inversión: ${formatARS(priceDiff)}</span>
                             <span class="text-gray-600 text-[11px]">
                                 <strong>${higher.name}</strong> suma frente a <strong>${lower.name}</strong>: 
                                 ${higher.chip !== lower.chip ? `procesador <span class="text-blue-700 font-bold">${higher.chip}</span>, ` : ''}
@@ -1935,8 +2006,8 @@
                         {
                             label: "Precio de Partida",
                             icon: "fa-tag",
-                            valA: `<span class="text-lg font-black text-gray-900">$${modelA.basePrice} USD</span>`,
-                            valB: `<span class="text-lg font-black text-gray-900">$${modelB.basePrice} USD</span>`,
+                            valA: `<span class="text-lg font-black text-gray-900">${formatARS(modelA.basePrice)}</span>`,
+                            valB: `<span class="text-lg font-black text-gray-900">${formatARS(modelB.basePrice)}</span>`,
                             highlight: modelA.basePrice !== modelB.basePrice
                         },
                         {
@@ -1949,8 +2020,8 @@
                         {
                             label: "Estimado con Plan Canje",
                             icon: "fa-arrows-rotate",
-                            valA: `<span class="text-emerald-700 font-bold">Desde $${Math.max(199, modelA.basePrice - 550)} USD</span><br><span class="text-[11px] text-gray-500 font-normal">Entregando tu iPhone anterior</span>`,
-                            valB: `<span class="text-emerald-700 font-bold">Desde $${Math.max(199, modelB.basePrice - 550)} USD</span><br><span class="text-[11px] text-gray-500 font-normal">Entregando tu iPhone anterior</span>`,
+                            valA: `<span class="text-emerald-700 font-bold">Desde ${formatARS(Math.max(400000, modelA.basePrice - 1100000))}</span><br><span class="text-[11px] text-gray-500 font-normal">Entregando tu iPhone anterior</span>`,
+                            valB: `<span class="text-emerald-700 font-bold">Desde ${formatARS(Math.max(400000, modelB.basePrice - 1100000))}</span><br><span class="text-[11px] text-gray-500 font-normal">Entregando tu iPhone anterior</span>`,
                             highlight: false
                         }
                     ]
@@ -2020,7 +2091,7 @@
                     </div>
                     <button onclick="addToCartWithFeedback(${modelA.id}, this)" class="w-full bg-gray-900 hover:bg-blue-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer">
                         <i class="fa-solid fa-bag-shopping text-xs"></i>
-                        <span>Elegir ${modelA.name} ($${modelA.basePrice} USD)</span>
+                        <span>Elegir ${modelA.name} (${formatARS(modelA.basePrice)})</span>
                     </button>
                 </div>
 
@@ -2052,7 +2123,7 @@
                     </div>
                     <button onclick="addToCartWithFeedback(${modelB.id}, this)" class="w-full bg-gray-900 hover:bg-purple-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer">
                         <i class="fa-solid fa-bag-shopping text-xs"></i>
-                        <span>Elegir ${modelB.name} ($${modelB.basePrice} USD)</span>
+                        <span>Elegir ${modelB.name} (${formatARS(modelB.basePrice)})</span>
                     </button>
                 </div>
             `;
@@ -2157,7 +2228,7 @@
                             <h4 class="font-bold text-sm text-gray-900">${item.name}</h4>
                             <p class="text-xs text-gray-500">${item.storage} • ${item.color}</p>
                             <div class="flex items-center justify-between mt-2">
-                                <span class="font-bold text-sm text-blue-600">$${item.price}</span>
+                                <span class="font-bold text-sm text-blue-600">${formatARS(item.price)}</span>
                                 <div class="flex items-center gap-2 bg-gray-100 rounded-lg px-2 py-1">
                                     <button onclick="updateCartQuantity('${item.cartItemId}', -1)" class="text-gray-500 hover:text-black px-1 font-bold">-</button>
                                     <span class="text-xs font-semibold">${item.quantity}</span>
@@ -2170,8 +2241,8 @@
             });
 
             container.innerHTML = html;
-            subtotalEl.innerText = `$${subtotal}`;
-            totalEl.innerText = `$${subtotal}`;
+            subtotalEl.innerText = formatARS(subtotal);
+            totalEl.innerText = formatARS(subtotal);
         }
 
         // --- CHECKOUT & MODAL ---
