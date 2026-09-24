@@ -475,15 +475,15 @@
                 <!-- Right Side: Filter Pills & Sorting -->
                 <div class="flex flex-wrap items-center gap-3">
                     <!-- Filter Pills -->
-                    <div class="flex items-center gap-1.5 p-1 bg-gray-100 rounded-xl" id="filter-container">
-                        <button onclick="filterProducts('all')" id="filter-all" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-gray-900 shadow-xs transition-all cursor-pointer">
-                            Todos <span class="ml-1 text-[10px] px-1.5 py-0.2 bg-gray-200 rounded-full font-semibold">6</span>
+                    <div class="flex items-center gap-1.5 p-1 bg-gray-100 rounded-xl border border-gray-200" id="filter-container">
+                        <button onclick="filterProducts('all')" id="filter-all" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white shadow-sm transition-all cursor-pointer">
+                            Todos <span class="ml-1 text-[10px] px-1.5 py-0.2 bg-white/25 text-white rounded-full font-semibold">6</span>
                         </button>
-                        <button onclick="filterProducts('Pro')" id="filter-pro" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all cursor-pointer">
-                            Línea Pro <span class="ml-1 text-[10px] px-1.5 py-0.2 bg-gray-200 rounded-full font-semibold">2</span>
+                        <button onclick="filterProducts('Pro')" id="filter-pro" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-gray-700 border border-gray-200 hover:border-blue-300 hover:text-blue-600 transition-all cursor-pointer">
+                            Línea Pro <span class="ml-1 text-[10px] px-1.5 py-0.2 bg-gray-200 text-gray-600 rounded-full font-semibold">2</span>
                         </button>
-                        <button onclick="filterProducts('Standard')" id="filter-standard" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all cursor-pointer">
-                            Línea Standard <span class="ml-1 text-[10px] px-1.5 py-0.2 bg-gray-200 rounded-full font-semibold">4</span>
+                        <button onclick="filterProducts('Standard')" id="filter-standard" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-gray-700 border border-gray-200 hover:border-blue-300 hover:text-blue-600 transition-all cursor-pointer">
+                            Línea Standard <span class="ml-1 text-[10px] px-1.5 py-0.2 bg-gray-200 text-gray-600 rounded-full font-semibold">4</span>
                         </button>
                     </div>
 
@@ -497,8 +497,8 @@
                         </select>
                     </div>
 
-                    <!-- Quick Compare Tool Button -->
-                    <a href="#comparador" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-blue-700 bg-blue-50/90 hover:bg-blue-100 border border-blue-200/70 transition-colors shadow-2xs">
+                    <!-- Quick Compare Tool Button (solo desktop, el comparador no esta disponible en mobile) -->
+                    <a href="#comparador" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-blue-700 bg-blue-50/90 hover:bg-blue-100 border border-blue-200/70 transition-colors shadow-2xs">
                         <i class="fa-solid fa-code-compare text-xs text-blue-600"></i>
                         <span>Comparar Modelos</span>
                     </a>
@@ -1494,8 +1494,8 @@
             const btnPro = document.getElementById('filter-pro');
             const btnStd = document.getElementById('filter-standard');
 
-            const activeClass = "filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-gray-900 shadow-xs transition-all cursor-pointer";
-            const inactiveClass = "filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all cursor-pointer";
+            const activeClass = "filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white shadow-sm transition-all cursor-pointer";
+            const inactiveClass = "filter-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-gray-700 border border-gray-200 hover:border-blue-300 hover:text-blue-600 transition-all cursor-pointer";
 
             if (btnAll) btnAll.className = category === 'all' ? activeClass : inactiveClass;
             if (btnPro) btnPro.className = category === 'Pro' ? activeClass : inactiveClass;
